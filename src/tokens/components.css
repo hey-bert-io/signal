@@ -41,6 +41,16 @@
   --checkbox-focus: var(--color-border-focus);
   --checkbox-background-disabled: var(--color-action-disabled);
   --checkbox-border-disabled: var(--color-border-default);
+  --status-neutral-background: var(--color-surface-subtle);
+  --status-neutral-foreground: var(--color-text-secondary);
+  --status-info-background: var(--color-status-info-subtle);
+  --status-info-foreground: var(--color-status-info);
+  --status-success-background: var(--color-status-success-subtle);
+  --status-success-foreground: var(--color-status-success);
+  --status-warning-background: var(--color-status-warning-subtle);
+  --status-warning-foreground: var(--color-status-warning);
+  --status-danger-background: var(--color-status-danger-subtle);
+  --status-danger-foreground: var(--color-status-danger);
   --button-disabled-background: var(--color-action-disabled);
   --button-disabled-foreground: var(--color-text-secondary);
   --button-disabled-border: var(--color-border-default);

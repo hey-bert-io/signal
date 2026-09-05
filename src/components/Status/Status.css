@@ -1,0 +1,54 @@
+.signal-status {
+  --signal-status-background: var(--status-neutral-background);
+  --signal-status-foreground: var(--status-neutral-foreground);
+
+  display: inline-flex;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  align-items: center;
+  height: 24px;
+  padding: var(--spacing-4) var(--spacing-8);
+  border: 0;
+  border-radius: var(--radius-full);
+  gap: 6px;
+  color: var(--signal-status-foreground);
+  background: var(--signal-status-background);
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.signal-status[data-tone='info'] {
+  --signal-status-background: var(--status-info-background);
+  --signal-status-foreground: var(--status-info-foreground);
+}
+
+.signal-status[data-tone='success'] {
+  --signal-status-background: var(--status-success-background);
+  --signal-status-foreground: var(--status-success-foreground);
+}
+
+.signal-status[data-tone='warning'] {
+  --signal-status-background: var(--status-warning-background);
+  --signal-status-foreground: var(--status-warning-foreground);
+}
+
+.signal-status[data-tone='danger'] {
+  --signal-status-background: var(--status-danger-background);
+  --signal-status-foreground: var(--status-danger-foreground);
+}
+
+.signal-status__indicator {
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+}
+
+.signal-status__label {
+  white-space: inherit;
+}
