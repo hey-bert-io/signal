@@ -35,6 +35,8 @@ export type {
   DataTableRowProps,
   DataTableSortDirection,
 } from './components/DataTable'
+export { NavItem } from './components/NavItem'
+export type { NavItemProps } from './components/NavItem'
 export { ThemeProvider } from './theme/ThemeProvider'
 export { useTheme } from './theme/useTheme'
 export type { SignalTheme, ThemeContextValue, ThemeProviderProps } from './theme/theme.types'
