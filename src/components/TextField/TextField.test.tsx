@@ -131,7 +131,7 @@ describe('TextField', () => {
 
   it('replaces helper text with an associated error', () => {
     const input = renderTextField({ error: 'Enter a valid project name.', helperText: 'Use a concise name.' })
-    const error = container?.querySelector('.signal-text-field__message--error')
+    const error = container?.querySelector('.signal-field-message[data-error]')
     expect(container?.textContent).not.toContain('Use a concise name.')
     expect(error?.textContent).toContain('Enter a valid project name.')
     expect(input.getAttribute('aria-invalid')).toBe('true')
@@ -140,19 +140,19 @@ describe('TextField', () => {
 
   it('marks the decorative error icon as hidden from assistive technology', () => {
     renderTextField({ error: 'Invalid value' })
-    expect(container?.querySelector('.signal-text-field__error-icon')?.getAttribute('aria-hidden')).toBe('true')
+    expect(container?.querySelector('.signal-field-message__error-icon')?.getAttribute('aria-hidden')).toBe('true')
   })
 
   it('associates helper text and combines a consumer description', () => {
     const input = renderTextField({ 'aria-describedby': 'external-description', helperText: 'Use a concise name.' })
-    const helper = container?.querySelector('.signal-text-field__message')
+    const helper = container?.querySelector('.signal-field-message')
     expect(input.getAttribute('aria-describedby')).toBe(`external-description ${helper?.id}`)
   })
 
   it('keeps its label accessible when visually hidden', async () => {
     const input = renderTextField({ hideLabel: true, placeholder: 'Search' })
     expect(container?.querySelector('label')).not.toBeNull()
-    expect(container?.querySelector('.signal-text-field__label-row--hidden')).not.toBeNull()
+    expect(container?.querySelector('.signal-field-label--hidden')).not.toBeNull()
     expect(input.getAttribute('aria-label')).toBeNull()
     const results = await axe.run(container as HTMLDivElement)
     expect(results.violations).toEqual([])
@@ -192,7 +192,7 @@ describe('TextField', () => {
     container?.setAttribute('data-theme', theme)
     if (container) container.style.backgroundColor = 'var(--color-background-default)'
     const inputStyles = getComputedStyle(input)
-    const error = container?.querySelector('.signal-text-field__message--error') as HTMLElement
+    const error = container?.querySelector('.signal-field-message[data-error]') as HTMLElement
     const errorStyles = getComputedStyle(error)
     expect(contrast(inputStyles.color, inputStyles.backgroundColor)).toBeGreaterThanOrEqual(4.5)
     expect(contrast(inputStyles.borderColor, inputStyles.backgroundColor)).toBeGreaterThanOrEqual(3)

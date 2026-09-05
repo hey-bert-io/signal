@@ -1,14 +1,15 @@
-import './TextField.css'
+import './Select.css'
 
 import { useId } from 'react'
 
 import { FieldLabel } from '../internal/FieldLabel'
 import { FieldMessage } from '../internal/FieldMessage'
-import type { TextFieldProps } from './TextField.types'
+import type { SelectProps } from './Select.types'
 
-export function TextField({
+export function Select({
   'aria-describedby': ariaDescribedBy,
   'aria-invalid': ariaInvalid,
+  children,
   className,
   error,
   helperText,
@@ -19,39 +20,44 @@ export function TextField({
   ref,
   required,
   size = 'medium',
-  ...inputProps
-}: TextFieldProps) {
+  ...selectProps
+}: SelectProps) {
   const generatedId = useId()
-  const inputId = id ?? `signal-text-field-${generatedId}`
+  const selectId = id ?? `signal-select-${generatedId}`
   const hasError = error !== undefined && error !== null && error !== false
   const hasHelper = helperText !== undefined && helperText !== null && helperText !== false
   const descriptionId = hasError
-    ? `${inputId}-error`
+    ? `${selectId}-error`
     : hasHelper
-      ? `${inputId}-helper`
+      ? `${selectId}-helper`
       : undefined
   const describedBy = [ariaDescribedBy, descriptionId].filter(Boolean).join(' ') || undefined
   const invalid = hasError ? true : ariaInvalid
-  const classes = ['signal-text-field', className].filter(Boolean).join(' ')
+  const classes = ['signal-select', className].filter(Boolean).join(' ')
 
   if (import.meta.env.DEV && optional && required) {
-    console.warn('Signal TextField: `optional` and native `required` should not be used together.')
+    console.warn('Signal Select: `optional` and native `required` should not be used together.')
   }
 
   return (
     <div className={classes} data-invalid={hasError || undefined} data-size={size}>
-      <FieldLabel hideLabel={hideLabel} htmlFor={inputId} optional={optional}>{label}</FieldLabel>
+      <FieldLabel hideLabel={hideLabel} htmlFor={selectId} optional={optional}>{label}</FieldLabel>
 
-      <div className="signal-text-field__control">
-        <input
-          {...inputProps}
+      <div className="signal-select__control">
+        <select
+          {...selectProps}
           ref={ref}
           aria-describedby={describedBy}
           aria-invalid={invalid}
-          className="signal-text-field__input"
-          id={inputId}
+          className="signal-select__select"
+          id={selectId}
           required={required}
-        />
+        >
+          {children}
+        </select>
+        <svg aria-hidden="true" className="signal-select__chevron" fill="none" viewBox="0 0 24 24">
+          <path d="m6 9 6 6 6-6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+        </svg>
       </div>
 
       {descriptionId ? (

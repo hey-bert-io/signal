@@ -24,6 +24,14 @@
   --text-field-error: var(--color-status-danger);
   --text-field-text: var(--color-text-primary);
   --text-field-muted: var(--color-text-secondary);
+  --select-background: var(--color-surface-default);
+  --select-background-disabled: var(--color-action-disabled);
+  --select-border: var(--color-border-strong);
+  --select-border-disabled: var(--color-border-default);
+  --select-focus: var(--color-border-focus);
+  --select-error: var(--color-status-danger);
+  --select-text: var(--color-text-primary);
+  --select-muted: var(--color-text-secondary);
   --button-disabled-background: var(--color-action-disabled);
   --button-disabled-foreground: var(--color-text-secondary);
   --button-disabled-border: var(--color-border-default);

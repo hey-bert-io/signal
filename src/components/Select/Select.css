@@ -1,0 +1,105 @@
+.signal-select {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 100%;
+  min-width: 0;
+  color: var(--select-text);
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  --signal-field-muted: var(--select-muted);
+  --signal-field-error: var(--select-error);
+}
+
+.signal-select__control {
+  position: relative;
+  height: var(--size-control-medium);
+}
+
+.signal-select[data-size='large'] .signal-select__control {
+  height: var(--size-control-large);
+}
+
+.signal-select__select {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: var(--spacing-0) calc(var(--spacing-12) + var(--size-icon-16) + var(--spacing-8)) var(--spacing-0) var(--spacing-12);
+  border: 1px solid var(--select-border);
+  border-radius: var(--radius-6);
+  outline: none;
+  color: var(--select-text);
+  background: var(--select-background);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  cursor: pointer;
+  appearance: none;
+}
+
+.signal-select[data-size='large'] .signal-select__select {
+  padding-right: calc(var(--spacing-16) + var(--size-icon-16) + var(--spacing-8));
+  padding-left: var(--spacing-16);
+}
+
+.signal-select__select:has(option:checked[value='']) {
+  color: var(--select-muted);
+}
+
+.signal-select__select option {
+  color: var(--select-text);
+}
+
+.signal-select__control::after {
+  position: absolute;
+  inset: -4px;
+  display: none;
+  border: 2px solid var(--select-focus);
+  border-radius: var(--radius-10);
+  pointer-events: none;
+  content: '';
+}
+
+.signal-select:focus-within .signal-select__control::after {
+  display: block;
+}
+
+.signal-select__select:focus {
+  border-color: var(--select-focus);
+}
+
+.signal-select[data-invalid] .signal-select__select {
+  border-color: var(--select-error);
+}
+
+.signal-select__chevron {
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-12);
+  display: block;
+  width: var(--size-icon-16);
+  height: var(--size-icon-16);
+  color: var(--select-text);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.signal-select[data-size='large'] .signal-select__chevron {
+  right: var(--spacing-16);
+}
+
+.signal-select__select:disabled {
+  border-color: var(--select-border-disabled);
+  color: var(--select-muted);
+  background: var(--select-background-disabled);
+  opacity: 1;
+  cursor: default;
+  -webkit-text-fill-color: var(--select-muted);
+}
+
+.signal-select:has(.signal-select__select:disabled) .signal-select__chevron {
+  color: var(--select-muted);
+}

@@ -6,43 +6,8 @@
   min-width: 0;
   color: var(--text-field-text);
   font-family: 'IBM Plex Sans', Arial, sans-serif;
-}
-
-.signal-text-field__label-row {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-8);
-  min-width: 0;
-}
-
-.signal-text-field__label-row--hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.signal-text-field__label {
-  flex: 1 1 auto;
-  min-width: 0;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0;
-}
-
-.signal-text-field__optional {
-  flex: 0 0 auto;
-  color: var(--text-field-muted);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
-  letter-spacing: 0;
+  --signal-field-muted: var(--text-field-muted);
+  --signal-field-error: var(--text-field-error);
 }
 
 .signal-text-field__control {
@@ -115,27 +80,4 @@
   opacity: 1;
   cursor: default;
   -webkit-text-fill-color: var(--text-field-muted);
-}
-
-.signal-text-field__message {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-8);
-  min-width: 0;
-  color: var(--text-field-muted);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
-  letter-spacing: 0;
-}
-
-.signal-text-field__message--error {
-  color: var(--text-field-error);
-}
-
-.signal-text-field__error-icon {
-  display: block;
-  flex: 0 0 var(--size-icon-16);
-  width: var(--size-icon-16);
-  height: var(--size-icon-16);
 }
