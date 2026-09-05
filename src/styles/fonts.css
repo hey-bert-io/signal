@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('@signal/ibm-plex-sans-medium') format('woff');
+}

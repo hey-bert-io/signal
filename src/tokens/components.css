@@ -1,0 +1,21 @@
+:root,
+[data-theme='light'],
+[data-theme='dark'] {
+  --button-primary-background: var(--color-action-primary);
+  --button-primary-background-hover: var(--color-action-primary-hover);
+  --button-primary-background-pressed: var(--color-action-primary-pressed);
+  --button-primary-foreground: var(--color-text-inverse);
+  --button-subtle-background: var(--color-surface-default);
+  --button-subtle-background-hover: var(--color-surface-subtle);
+  --button-subtle-background-pressed: var(--color-surface-selected);
+  --button-neutral-foreground: var(--color-text-primary);
+  --button-neutral-border: var(--color-border-strong);
+  --button-danger-foreground: var(--color-text-inverse);
+  --button-danger-background: var(--primitive-red-600);
+  --button-danger-background-hover: var(--primitive-red-700);
+  --button-danger-background-pressed: var(--primitive-red-900);
+  --button-disabled-background: var(--color-action-disabled);
+  --button-disabled-foreground: var(--color-text-secondary);
+  --button-disabled-border: var(--color-border-default);
+  --button-focus-ring: var(--color-border-focus);
+}
