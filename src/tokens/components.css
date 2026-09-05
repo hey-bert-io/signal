@@ -14,6 +14,7 @@
   --button-danger-background: var(--primitive-red-600);
   --button-danger-background-hover: var(--primitive-red-700);
   --button-danger-background-pressed: var(--primitive-red-900);
+  --icon-button-danger-foreground: var(--color-status-danger);
   --button-disabled-background: var(--color-action-disabled);
   --button-disabled-foreground: var(--color-text-secondary);
   --button-disabled-border: var(--color-border-default);

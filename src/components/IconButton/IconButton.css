@@ -1,0 +1,99 @@
+.signal-icon-button {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-control-medium);
+  height: var(--size-control-medium);
+  padding: var(--spacing-0);
+  border: 0;
+  border-radius: var(--radius-6);
+  color: var(--button-primary-foreground);
+  background: var(--button-primary-background);
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.signal-icon-button[data-size='small'] {
+  width: var(--size-control-small);
+  height: var(--size-control-small);
+}
+
+.signal-icon-button[data-size='large'] {
+  width: var(--size-control-large);
+  height: var(--size-control-large);
+}
+
+.signal-icon-button[data-variant='primary']:hover:not(:disabled) {
+  background: var(--button-primary-background-hover);
+}
+
+.signal-icon-button[data-variant='primary']:active:not(:disabled) {
+  background: var(--button-primary-background-pressed);
+}
+
+.signal-icon-button[data-variant='secondary'] {
+  color: var(--button-neutral-foreground);
+  background: var(--button-subtle-background);
+  box-shadow: inset 0 0 0 1px var(--button-neutral-border);
+}
+
+.signal-icon-button[data-variant='ghost'] {
+  color: var(--button-neutral-foreground);
+  background: transparent;
+}
+
+.signal-icon-button[data-variant='danger'] {
+  color: var(--icon-button-danger-foreground);
+  background: var(--button-subtle-background);
+  box-shadow: inset 0 0 0 1px var(--icon-button-danger-foreground);
+}
+
+.signal-icon-button[data-variant='secondary']:hover:not(:disabled),
+.signal-icon-button[data-variant='ghost']:hover:not(:disabled),
+.signal-icon-button[data-variant='danger']:hover:not(:disabled) {
+  background: var(--button-subtle-background-hover);
+}
+
+.signal-icon-button[data-variant='secondary']:active:not(:disabled),
+.signal-icon-button[data-variant='ghost']:active:not(:disabled),
+.signal-icon-button[data-variant='danger']:active:not(:disabled) {
+  background: var(--button-subtle-background-pressed);
+}
+
+.signal-icon-button:focus {
+  outline: none;
+}
+
+.signal-icon-button:focus-visible::after {
+  position: absolute;
+  inset: -4px;
+  border: 2px solid var(--button-focus-ring);
+  border-radius: var(--radius-12);
+  pointer-events: none;
+  content: '';
+}
+
+.signal-icon-button:disabled {
+  color: var(--button-disabled-foreground);
+  background: var(--button-disabled-background);
+  box-shadow: inset 0 0 0 1px var(--button-disabled-border);
+  cursor: default;
+}
+
+.signal-icon-button__icon {
+  display: inline-flex;
+  flex: 0 0 var(--size-icon-16);
+  align-items: center;
+  justify-content: center;
+  width: var(--size-icon-16);
+  height: var(--size-icon-16);
+  color: currentColor;
+}
+
+.signal-icon-button__icon > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
