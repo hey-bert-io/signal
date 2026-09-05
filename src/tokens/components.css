@@ -53,6 +53,13 @@
   --status-danger-foreground: var(--color-status-danger);
   --avatar-initials-background: var(--color-surface-selected);
   --avatar-initials-foreground: var(--color-text-brand);
+  --tab-foreground: var(--color-text-secondary);
+  --tab-foreground-hover: var(--color-text-primary);
+  --tab-foreground-active: var(--color-text-primary);
+  --tab-foreground-disabled: var(--color-text-disabled);
+  --tab-indicator: var(--color-action-primary);
+  --tab-focus: var(--color-border-focus);
+  --tabs-border: var(--color-border-default);
   --button-disabled-background: var(--color-action-disabled);
   --button-disabled-foreground: var(--color-text-secondary);
   --button-disabled-border: var(--color-border-default);

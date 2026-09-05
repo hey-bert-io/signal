@@ -1,0 +1,81 @@
+.signal-tabs {
+  display: block;
+}
+
+.signal-tab-list {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-24);
+  height: 36px;
+  border-bottom: 1px solid var(--tabs-border);
+}
+
+.signal-tab {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: max-content;
+  height: 36px;
+  padding: 8px 0 0;
+  border: 0;
+  border-radius: 0;
+  color: var(--tab-foreground);
+  background: transparent;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+}
+
+.signal-tab:hover:not(:disabled) {
+  color: var(--tab-foreground-hover);
+}
+
+.signal-tab[data-selected] {
+  color: var(--tab-foreground-active);
+}
+
+.signal-tab:focus {
+  outline: none;
+}
+
+.signal-tab:focus-visible::after {
+  position: absolute;
+  inset: -4px;
+  z-index: 1;
+  border: 2px solid var(--tab-focus);
+  border-radius: 6px;
+  pointer-events: none;
+  content: '';
+}
+
+.signal-tab:disabled {
+  color: var(--tab-foreground-disabled);
+  cursor: default;
+}
+
+.signal-tab__label {
+  height: 20px;
+}
+
+.signal-tab__indicator {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 2px;
+  flex: 0 0 2px;
+  background: transparent;
+}
+
+.signal-tab[data-selected] .signal-tab__indicator {
+  background: var(--tab-indicator);
+}
