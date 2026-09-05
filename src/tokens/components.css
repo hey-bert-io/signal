@@ -51,6 +51,8 @@
   --status-warning-foreground: var(--color-status-warning);
   --status-danger-background: var(--color-status-danger-subtle);
   --status-danger-foreground: var(--color-status-danger);
+  --avatar-initials-background: var(--color-surface-selected);
+  --avatar-initials-foreground: var(--color-text-brand);
   --button-disabled-background: var(--color-action-disabled);
   --button-disabled-foreground: var(--color-text-secondary);
   --button-disabled-border: var(--color-border-default);
