@@ -32,6 +32,15 @@
   --select-error: var(--color-status-danger);
   --select-text: var(--color-text-primary);
   --select-muted: var(--color-text-secondary);
+  --checkbox-background: var(--color-surface-default);
+  --checkbox-background-selected: var(--color-action-primary);
+  --checkbox-border: var(--color-border-strong);
+  --checkbox-icon: var(--color-text-inverse);
+  --checkbox-text: var(--color-text-primary);
+  --checkbox-muted: var(--color-text-secondary);
+  --checkbox-focus: var(--color-border-focus);
+  --checkbox-background-disabled: var(--color-action-disabled);
+  --checkbox-border-disabled: var(--color-border-default);
   --button-disabled-background: var(--color-action-disabled);
   --button-disabled-foreground: var(--color-text-secondary);
   --button-disabled-border: var(--color-border-default);
