@@ -15,6 +15,15 @@
   --button-danger-background-hover: var(--primitive-red-700);
   --button-danger-background-pressed: var(--primitive-red-900);
   --icon-button-danger-foreground: var(--color-status-danger);
+  --text-field-background: var(--color-surface-default);
+  --text-field-background-disabled: var(--color-action-disabled);
+  --text-field-background-read-only: var(--color-surface-subtle);
+  --text-field-border: var(--color-border-strong);
+  --text-field-border-disabled: var(--color-border-default);
+  --text-field-focus: var(--color-border-focus);
+  --text-field-error: var(--color-status-danger);
+  --text-field-text: var(--color-text-primary);
+  --text-field-muted: var(--color-text-secondary);
   --button-disabled-background: var(--color-action-disabled);
   --button-disabled-foreground: var(--color-text-secondary);
   --button-disabled-border: var(--color-border-default);

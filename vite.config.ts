@@ -13,6 +13,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      '@signal/ibm-plex-sans-regular': path.resolve(
+        dirname,
+        'node_modules/@ibm/plex/IBM-Plex-Sans/fonts/complete/woff/IBMPlexSans-Regular.woff',
+      ),
       '@signal/ibm-plex-sans-medium': path.resolve(
         dirname,
         'node_modules/@ibm/plex/IBM-Plex-Sans/fonts/complete/woff/IBMPlexSans-Medium.woff',

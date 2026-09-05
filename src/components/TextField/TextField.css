@@ -1,0 +1,141 @@
+.signal-text-field {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 100%;
+  min-width: 0;
+  color: var(--text-field-text);
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+
+.signal-text-field__label-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  min-width: 0;
+}
+
+.signal-text-field__label-row--hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.signal-text-field__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.signal-text-field__optional {
+  flex: 0 0 auto;
+  color: var(--text-field-muted);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.signal-text-field__control {
+  position: relative;
+  height: var(--size-control-medium);
+}
+
+.signal-text-field[data-size='large'] .signal-text-field__control {
+  height: var(--size-control-large);
+}
+
+.signal-text-field__input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: var(--spacing-0) var(--spacing-12);
+  border: 1px solid var(--text-field-border);
+  border-radius: var(--radius-6);
+  outline: none;
+  color: var(--text-field-text);
+  background: var(--text-field-background);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.signal-text-field[data-size='large'] .signal-text-field__input {
+  padding-inline: var(--spacing-16);
+}
+
+.signal-text-field__input::placeholder {
+  color: var(--text-field-muted);
+  opacity: 1;
+}
+
+.signal-text-field__control::after {
+  position: absolute;
+  inset: -4px;
+  display: none;
+  border: 2px solid var(--text-field-focus);
+  border-radius: var(--radius-10);
+  pointer-events: none;
+  content: '';
+}
+
+.signal-text-field:focus-within .signal-text-field__control::after {
+  display: block;
+}
+
+.signal-text-field__input:focus {
+  border-color: var(--text-field-focus);
+}
+
+.signal-text-field[data-invalid] .signal-text-field__input {
+  border-color: var(--text-field-error);
+}
+
+.signal-text-field__input:read-only {
+  background: var(--text-field-background-read-only);
+}
+
+.signal-text-field__input:disabled {
+  border-color: var(--text-field-border-disabled);
+  color: var(--text-field-muted);
+  background: var(--text-field-background-disabled);
+  opacity: 1;
+  cursor: default;
+  -webkit-text-fill-color: var(--text-field-muted);
+}
+
+.signal-text-field__message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  min-width: 0;
+  color: var(--text-field-muted);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.signal-text-field__message--error {
+  color: var(--text-field-error);
+}
+
+.signal-text-field__error-icon {
+  display: block;
+  flex: 0 0 var(--size-icon-16);
+  width: var(--size-icon-16);
+  height: var(--size-icon-16);
+}
