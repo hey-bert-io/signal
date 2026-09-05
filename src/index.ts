@@ -18,6 +18,23 @@ export { Card } from './components/Card'
 export type { CardElement, CardProps } from './components/Card'
 export { Tab, TabList, TabPanel, Tabs } from './components/Tabs'
 export type { TabListProps, TabPanelProps, TabProps, TabsProps } from './components/Tabs'
+export {
+  DataTable,
+  DataTableBody,
+  DataTableCell,
+  DataTableHeaderCell,
+  DataTableHead,
+  DataTableRow,
+} from './components/DataTable'
+export type {
+  DataTableBodyProps,
+  DataTableCellProps,
+  DataTableHeaderCellProps,
+  DataTableHeadProps,
+  DataTableProps,
+  DataTableRowProps,
+  DataTableSortDirection,
+} from './components/DataTable'
 export { ThemeProvider } from './theme/ThemeProvider'
 export { useTheme } from './theme/useTheme'
 export type { SignalTheme, ThemeContextValue, ThemeProviderProps } from './theme/theme.types'

@@ -62,6 +62,14 @@
   --tab-indicator: var(--color-action-primary);
   --tab-focus: var(--color-border-focus);
   --tabs-border: var(--color-border-default);
+  --table-background: var(--color-surface-default);
+  --table-border: var(--color-border-default);
+  --table-header-background: var(--color-surface-subtle);
+  --table-header-foreground: var(--color-text-secondary);
+  --table-row-background: var(--color-surface-default);
+  --table-row-background-hover: var(--color-surface-subtle);
+  --table-row-background-selected: var(--color-surface-selected);
+  --table-cell-foreground: var(--color-text-primary);
   --button-disabled-background: var(--color-action-disabled);
   --button-disabled-foreground: var(--color-text-secondary);
   --button-disabled-border: var(--color-border-default);

@@ -1,0 +1,145 @@
+.signal-data-table {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  border: 1px solid var(--table-border);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius-8);
+  color: var(--table-cell-foreground);
+  background: var(--table-background);
+  box-shadow: none;
+  table-layout: fixed;
+}
+
+.signal-data-table__header-cell,
+.signal-data-table__cell {
+  box-sizing: border-box;
+  padding: 0 var(--spacing-12);
+  border: 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.signal-data-table__header-cell {
+  height: 40px;
+  color: var(--table-header-foreground);
+  background: var(--table-header-background);
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.signal-data-table__header-cell[data-sortable] {
+  padding: 0;
+}
+
+.signal-data-table__cell {
+  height: 44px;
+  color: var(--table-cell-foreground);
+  background: inherit;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.signal-data-table__row {
+  color: var(--table-cell-foreground);
+  background: var(--table-row-background);
+}
+
+.signal-data-table__body .signal-data-table__row:hover:not([data-selected]) {
+  background: var(--table-row-background-hover);
+}
+
+.signal-data-table__body .signal-data-table__row[data-selected] {
+  background: var(--table-row-background-selected);
+}
+
+.signal-data-table__body .signal-data-table__row:not(:last-child) > .signal-data-table__cell {
+  border-bottom: 1px solid var(--table-border);
+}
+
+.signal-data-table__sort-button {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: 0 var(--spacing-12);
+  border: 0;
+  border-radius: var(--radius-4);
+  color: inherit;
+  background: transparent;
+  box-shadow: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.signal-data-table__sort-button:hover {
+  background: var(--color-surface-selected);
+}
+
+.signal-data-table__sort-button:focus {
+  outline: none;
+}
+
+.signal-data-table__sort-button:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--color-border-focus);
+}
+
+.signal-data-table__sort-label {
+  min-width: 0;
+}
+
+.signal-data-table__sort-indicator {
+  display: block;
+  width: var(--size-icon-16);
+  height: var(--size-icon-16);
+  flex: 0 0 var(--size-icon-16);
+  background-color: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: var(--size-icon-16) var(--size-icon-16);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: var(--size-icon-16) var(--size-icon-16);
+}
+
+.signal-data-table__sort-indicator[data-direction='ascending'] {
+  mask-image: url('./assets/sort-ascending.svg');
+  -webkit-mask-image: url('./assets/sort-ascending.svg');
+}
+
+.signal-data-table__sort-indicator[data-direction='descending'] {
+  mask-image: url('./assets/sort-descending.svg');
+  -webkit-mask-image: url('./assets/sort-descending.svg');
+}
+
+.signal-data-table__sort-indicator[data-direction='unsorted'] {
+  mask-image: url('./assets/sort-unsorted.svg');
+  -webkit-mask-image: url('./assets/sort-unsorted.svg');
+}
+
+.signal-data-table > .signal-data-table__head:first-of-type > .signal-data-table__row:first-child > .signal-data-table__header-cell:first-child {
+  border-start-start-radius: calc(var(--radius-8) - 1px);
+}
+
+.signal-data-table > .signal-data-table__head:first-of-type > .signal-data-table__row:first-child > .signal-data-table__header-cell:last-child {
+  border-start-end-radius: calc(var(--radius-8) - 1px);
+}
+
+.signal-data-table > .signal-data-table__body:last-of-type > .signal-data-table__row:last-child > .signal-data-table__cell:first-child {
+  border-end-start-radius: calc(var(--radius-8) - 1px);
+}
+
+.signal-data-table > .signal-data-table__body:last-of-type > .signal-data-table__row:last-child > .signal-data-table__cell:last-child {
+  border-end-end-radius: calc(var(--radius-8) - 1px);
+}
