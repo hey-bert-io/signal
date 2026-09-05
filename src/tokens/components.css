@@ -75,3 +75,14 @@
   --button-disabled-border: var(--color-border-default);
   --button-focus-ring: var(--color-border-focus);
 }
+
+:root,
+[data-theme='light'] {
+  --count-badge-background: var(--color-accent-subtle);
+  --count-badge-foreground: var(--color-text-secondary);
+}
+
+[data-theme='dark'] {
+  --count-badge-background: var(--color-text-secondary);
+  --count-badge-foreground: var(--color-accent-subtle);
+}

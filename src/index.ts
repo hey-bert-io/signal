@@ -37,6 +37,8 @@ export type {
 } from './components/DataTable'
 export { NavItem } from './components/NavItem'
 export type { NavItemProps } from './components/NavItem'
+export { CountBadge } from './components/CountBadge'
+export type { CountBadgeProps } from './components/CountBadge'
 export { ThemeProvider } from './theme/ThemeProvider'
 export { useTheme } from './theme/useTheme'
 export type { SignalTheme, ThemeContextValue, ThemeProviderProps } from './theme/theme.types'
