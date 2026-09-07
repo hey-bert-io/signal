@@ -1,4 +1,5 @@
 import type { TaskRecord } from '../components/TaskTable'
+import type { ActivityRecord } from '../components/ActivityItem'
 
 export const relayTasks: TaskRecord[] = [
   { id: 'hero-banner', title: 'Hero banner — copy and visuals', status: { label: 'In progress', tone: 'info' }, assignee: { initials: 'SR', name: 'Sofia Reyes' }, priority: 'High', due: 'Oct 3' },
@@ -11,4 +12,14 @@ export const relayTasks: TaskRecord[] = [
   { id: 'demo-script', title: 'Product demo video script', status: { label: 'Done', tone: 'success' }, assignee: { initials: 'PN', name: 'Priya Nair' }, priority: 'High', due: 'Oct 18', selected: true },
   { id: 'retargeting', title: 'Retargeting pixel configuration', status: { label: 'At risk', tone: 'warning' }, assignee: { initials: 'JO', name: 'James Okafor' }, priority: 'Medium', due: 'Oct 21' },
   { id: 'analytics-report', title: 'Post-launch analytics report', status: { label: 'Draft', tone: 'neutral' }, assignee: { initials: 'CM', name: 'Clara Mendez' }, priority: 'Low', due: 'Oct 28' },
+]
+
+export const relayActivities: ActivityRecord[] = [
+  { id: 'status-hero', actor: { initials: 'SR', name: 'Sofia Reyes' }, action: 'updated status of', object: 'Hero banner copy', status: { label: 'In progress', tone: 'info' }, time: '2h ago' },
+  { id: 'complete-landing', actor: { initials: 'PN', name: 'Priya Nair' }, action: 'completed', object: 'Landing page A/B test setup', time: '4h ago' },
+  { id: 'risk-social', actor: { initials: 'JO', name: 'James Okafor' }, action: 'flagged as at-risk', object: 'Paid social ad creatives', status: { label: 'At risk', tone: 'warning' }, time: '6h ago' },
+  { id: 'comment-email', actor: { initials: 'ML', name: 'Marcus Lin' }, action: 'left a comment on', object: 'Email drip sequence', time: '1d ago' },
+  { id: 'create-report', actor: { initials: 'CM', name: 'Clara Mendez' }, action: 'created', object: 'Post-launch analytics report', status: { label: 'Draft', tone: 'neutral' }, time: '2d ago' },
+  { id: 'complete-demo', actor: { initials: 'PN', name: 'Priya Nair' }, action: 'completed', object: 'Product demo video script', status: { label: 'Done', tone: 'success' }, time: '2d ago' },
+  { id: 'assign-seo', actor: { initials: 'SR', name: 'Sofia Reyes' }, action: 'was assigned', object: 'SEO long-form article', time: '3d ago' },
 ]

@@ -99,8 +99,8 @@ describe('CountBadge', () => {
 
   it.each([
     ['light', 'rgb(219, 234, 213)', 'rgb(61, 59, 55)'],
-    ['dark', 'rgb(206, 197, 186)', 'rgb(25, 49, 34)'],
-  ] as const)('resolves the intended inverted component tokens in %s', (theme, background, foreground) => {
+    ['dark', 'rgb(25, 49, 34)', 'rgb(206, 197, 186)'],
+  ] as const)('resolves the intended semantic component tokens in %s', (theme, background, foreground) => {
     const badge = renderCountBadge(<CountBadge data-theme={theme}>24</CountBadge>)
     const styles = getComputedStyle(badge)
     expect(styles.backgroundColor).toBe(background)

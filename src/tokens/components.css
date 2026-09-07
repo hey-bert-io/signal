@@ -99,6 +99,6 @@
 }
 
 [data-theme='dark'] {
-  --count-badge-background: var(--color-text-secondary);
-  --count-badge-foreground: var(--color-accent-subtle);
+  --count-badge-background: var(--color-accent-subtle);
+  --count-badge-foreground: var(--color-text-secondary);
 }

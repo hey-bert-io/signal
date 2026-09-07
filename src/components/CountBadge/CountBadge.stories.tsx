@@ -84,7 +84,7 @@ export const DarkTheme: Story = {
   play: async ({ canvasElement }) => {
     const badge = within(canvasElement).getByText('24')
     const styles = getComputedStyle(badge)
-    await expect(styles.backgroundColor).toBe('rgb(206, 197, 186)')
-    await expect(styles.color).toBe('rgb(25, 49, 34)')
+    await expect(styles.backgroundColor).toBe('rgb(25, 49, 34)')
+    await expect(styles.color).toBe('rgb(206, 197, 186)')
   },
 }

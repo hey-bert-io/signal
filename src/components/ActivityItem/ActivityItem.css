@@ -1,0 +1,67 @@
+.signal-activity-feed {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-8);
+  background: var(--color-surface-default);
+  list-style: none;
+}
+.signal-activity-item {
+  display: flex;
+  box-sizing: border-box;
+  min-height: 65px;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  color: var(--color-text-primary);
+  background: var(--color-surface-default);
+  font: var(--font-weight-regular) var(--font-size-body)/var(--line-height-body) var(--font-family-sans);
+}
+.signal-activity-item:not(:last-child) { border-bottom: 1px solid var(--color-border-subtle); }
+.signal-activity-item__body {
+  display: grid;
+  min-width: 0;
+  flex: 1 1 auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+}
+.signal-activity-item__top-row { display: contents; }
+.signal-activity-item__headline {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  grid-column: 1;
+  grid-row: 1;
+}
+.signal-activity-item__headline strong { flex: 0 0 auto; font-weight: var(--font-weight-medium); }
+.signal-activity-item__headline span { flex: 0 0 auto; color: var(--color-text-secondary); }
+.signal-activity-item__body > .signal-status-indicator { grid-column: 2; grid-row: 1; }
+.signal-activity-item time {
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-label);
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .signal-activity-item { min-height: 64px; align-items: flex-start; }
+  .signal-activity-item__body { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .signal-activity-item__top-row { display: flex; width: 100%; align-items: flex-start; gap: 12px; }
+  .signal-activity-item__headline { flex: 1 1 auto; flex-wrap: wrap; white-space: normal; }
+  .signal-activity-item__headline strong,
+  .signal-activity-item__headline span { flex: 0 0 auto; }
+  .signal-activity-item time { flex: 0 0 auto; }
+}
+
+@media (max-width: 767px) {
+  .signal-activity-item { gap: 12px; padding: 16px; }
+  .signal-activity-item__headline { align-content: flex-start; }
+}
