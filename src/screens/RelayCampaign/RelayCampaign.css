@@ -6,6 +6,7 @@
 .signal-relay-campaign-shell--tasks .signal-relay-campaign { gap:26px; }
 .signal-relay-campaign-shell--activity .signal-relay-campaign { gap:30px; }
 .signal-relay-overview-content { display:flex; flex-direction:column; gap:20px; }
+.signal-relay-overview-content > .signal-card { --card-background: var(--color-surface-default); }
 .signal-relay-overview-content .signal-campaign-health { height:386px; }
 .signal-relay-overview__brief { height:138px; padding:16px 24px; }
 .signal-relay-overview__brief h2 { margin:0 0 10px; font:600 var(--font-size-body-emphasized)/var(--line-height-body-emphasized) var(--font-family-sans); }

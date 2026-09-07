@@ -3,7 +3,7 @@
   color-scheme: light;
   --color-background-default: var(--primitive-neutral-50);
   --color-background-subtle: var(--primitive-neutral-100);
-  --color-surface-default: var(--primitive-neutral-50);
+  --color-surface-default: var(--primitive-neutral-0);
   --color-surface-subtle: var(--primitive-neutral-100);
   --color-surface-raised: var(--primitive-neutral-0);
   --color-surface-selected: var(--primitive-brand-50);

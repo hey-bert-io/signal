@@ -15,6 +15,15 @@ afterEach(() => {
 
 describe('Signal foundation tokens', () => {
   it.each([
+    ['light', '#ffffff', '#f2ece2'],
+    ['dark', '#18181b', '#0f0f14'],
+  ] as const)('maps the Figma default and subtle surfaces in %s', (theme, surface, subtle) => {
+    const styles = getComputedStyle(fixture(theme))
+    expect(styles.getPropertyValue('--color-surface-default').trim()).toBe(surface)
+    expect(styles.getPropertyValue('--color-surface-subtle').trim()).toBe(subtle)
+  })
+
+  it.each([
     ['light', '#4f46e5', '#4338ca', '#211c54', '#ffffff'],
     ['dark', '#4f46e5', '#a5b4fc', '#4338ca', '#18181b'],
   ] as const)(
