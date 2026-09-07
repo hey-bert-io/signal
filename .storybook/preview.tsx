@@ -31,7 +31,7 @@ const preview: Preview = {
   parameters: {
     viewport: {
       options: {
-        desktop1440: { name: 'Desktop 1440', styles: { width: '1440px', height: '900px' } },
+        desktop1440: { name: 'Desktop 1440', styles: { width: '1440px', height: '1024px' } },
         tablet768: { name: 'Tablet 768', styles: { width: '768px', height: '1024px' } },
         mobile393: { name: 'Mobile 393', styles: { width: '393px', height: '852px' } },
       },
