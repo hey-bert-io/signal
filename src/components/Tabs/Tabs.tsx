@@ -167,9 +167,11 @@ export function TabList({ className, ref, ...listProps }: TabListProps) {
 }
 
 export function Tab({
+  'aria-controls': ariaControls,
   children,
   className,
   disabled = false,
+  id,
   onClick,
   onKeyDown,
   ref,
@@ -216,13 +218,13 @@ export function Tab({
         buttonRef.current = node
         setRef(ref, node)
       }}
-      aria-controls={panelId}
+      aria-controls={ariaControls ?? panelId}
       aria-selected={selected}
       className={classes}
       data-selected={selected ? '' : undefined}
       data-value={value}
       disabled={disabled}
-      id={tabId}
+      id={id ?? tabId}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       role="tab"

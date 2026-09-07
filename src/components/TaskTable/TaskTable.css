@@ -27,7 +27,7 @@
   border: 0;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1231px) {
   .signal-task-table col.task { width: auto; }
   .signal-task-table col.status { width: 116px; }
   .signal-task-table col.assignee { width: 128px; }

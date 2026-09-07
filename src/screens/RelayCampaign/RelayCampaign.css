@@ -41,3 +41,7 @@
   .signal-relay-overview-content .signal-campaign-health { height:630px; }
   .signal-relay-overview__brief { height:234px; }
 }
+
+@media(max-width:335px){
+  .signal-relay-tasks__actions .signal-filter-bar { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}

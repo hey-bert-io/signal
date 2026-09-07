@@ -8,7 +8,7 @@ export interface TabsProps extends Omit<ComponentPropsWithRef<'div'>, 'defaultVa
 
 export type TabListProps = ComponentPropsWithRef<'div'>
 
-export interface TabProps extends Omit<ComponentPropsWithRef<'button'>, 'aria-controls' | 'aria-selected' | 'id' | 'role' | 'tabIndex' | 'type' | 'value'> {
+export interface TabProps extends Omit<ComponentPropsWithRef<'button'>, 'aria-selected' | 'role' | 'tabIndex' | 'type' | 'value'> {
   value: string
 }
 

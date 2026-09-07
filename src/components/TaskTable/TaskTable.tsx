@@ -8,7 +8,7 @@ import type { TaskRecord, TaskTableProps } from './TaskTable.types'
 
 export function TaskRow({ task, onSelectionChange }: { task: TaskRecord; onSelectionChange?: (id: string, selected: boolean) => void }) {
   return (
-    <DataTableRow>
+    <DataTableRow selected={Boolean(task.selected)}>
       <DataTableCell className="signal-task-table__selection">
         <Checkbox aria-label={`Select ${task.title}`} checked={Boolean(task.selected)} label="" onChange={(event) => onSelectionChange?.(task.id, event.target.checked)} />
       </DataTableCell>

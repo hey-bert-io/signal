@@ -1,6 +1,6 @@
 import './RelayCampaign.css'
 
-import { useState } from 'react'
+import { useId, useMemo, useState, type ReactNode } from 'react'
 import { ActivityFeed } from '../../components/ActivityItem'
 import { AppShell } from '../../components/AppShell'
 import { Button } from '../../components/Button'
@@ -53,7 +53,12 @@ function OverviewView() {
 function TasksView() {
   const [filters, setFilters] = useState<TaskFilters>({ status: 'All', assignee: 'Anyone', priority: 'All' })
   const [tasks, setTasks] = useState(relayTasks)
-  return <section aria-labelledby="relay-tasks-heading" className="signal-relay-tasks__section"><div className="signal-relay-tasks__title"><h2 id="relay-tasks-heading">Tasks</h2><CountBadge>{tasks.length}</CountBadge></div><div className="signal-relay-tasks__actions"><FilterBar filters={filters} onChange={setFilters}/><Button leadingIcon={icon(plusIcon)}>New task</Button></div><TaskTable aria-label="Relay campaign tasks" onTaskSelectionChange={(id, selected) => setTasks((current) => current.map((task) => task.id === id ? { ...task, selected } : task))} tasks={tasks}/></section>
+  const visibleTasks = useMemo(() => tasks.filter((task) => (
+    (filters.status === 'All' || task.status.label === filters.status)
+    && (filters.assignee === 'Anyone' || task.assignee.name === filters.assignee)
+    && (filters.priority === 'All' || task.priority === filters.priority)
+  )), [filters, tasks])
+  return <section aria-labelledby="relay-tasks-heading" className="signal-relay-tasks__section"><div className="signal-relay-tasks__title"><h2 id="relay-tasks-heading">Tasks</h2><CountBadge aria-label={`${visibleTasks.length} visible tasks`}>{visibleTasks.length}</CountBadge></div><div className="signal-relay-tasks__actions"><FilterBar aria-label="Task filters" filters={filters} onChange={setFilters}/><Button leadingIcon={icon(plusIcon)}>New task</Button></div><TaskTable aria-label="Relay campaign tasks" onTaskSelectionChange={(id, selected) => setTasks((current) => current.map((task) => task.id === id ? { ...task, selected } : task))} tasks={visibleTasks}/></section>
 }
 
 function ActivityView() {
@@ -62,6 +67,8 @@ function ActivityView() {
 
 export function RelayCampaign({ initialView = 'overview', onThemeToggle, onViewChange }: RelayCampaignProps) {
   const [view, setView] = useState<CampaignView>(initialView)
+  const tabsId = `relay-campaign-${useId()}`
   const changeView = (next: CampaignView) => { setView(next); onViewChange?.(next) }
-  return <AppShell className={`signal-relay-campaign-shell signal-relay-campaign-shell--${view}`} identity={{initials:'AR',name:'Alex Rivera'}} navigation={[{href:'#overview',label:'Campaigns',icon:icon(gridIcon),current:true},{href:'#tasks',label:'My tasks',icon:icon(listIcon)},{href:'#analytics',label:'Analytics',icon:icon(chartIcon)},{href:'#team',label:'Team',icon:icon(usersIcon)}]} onThemeToggle={onThemeToggle} themeLabel="Light mode" utilityNavigation={[{href:'#settings',label:'Settings',icon:icon(cogIcon)}]}><div className="signal-relay-campaign"><CampaignHeader description="Drive 5,000 early signups through multi-channel activation." onViewChange={changeView} title="Relay App Launch" view={view}/>{view === 'overview' ? <OverviewView/> : view === 'tasks' ? <TasksView/> : <ActivityView/>}</div></AppShell>
+  const panel = (panelView: CampaignView, children: ReactNode) => <div aria-labelledby={`${tabsId}-${panelView}-tab`} hidden={view !== panelView} id={`${tabsId}-${panelView}-panel`} role="tabpanel">{view === panelView ? children : null}</div>
+  return <AppShell className={`signal-relay-campaign-shell signal-relay-campaign-shell--${view}`} identity={{initials:'AR',name:'Alex Rivera'}} navigation={[{href:'#overview',label:'Campaigns',icon:icon(gridIcon),current:true},{href:'#tasks',label:'My tasks',icon:icon(listIcon)},{href:'#analytics',label:'Analytics',icon:icon(chartIcon)},{href:'#team',label:'Team',icon:icon(usersIcon)}]} onThemeToggle={onThemeToggle} themeLabel="Light mode" utilityNavigation={[{href:'#settings',label:'Settings',icon:icon(cogIcon)}]}><div className="signal-relay-campaign"><CampaignHeader description="Drive 5,000 early signups through multi-channel activation." onViewChange={changeView} panelIdPrefix={tabsId} title="Relay App Launch" view={view}/>{panel('overview', <OverviewView/>)}{panel('tasks', <TasksView/>)}{panel('activity', <ActivityView/>)}</div></AppShell>
 }

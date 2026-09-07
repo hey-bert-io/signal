@@ -186,7 +186,7 @@ describe('Tabs', () => {
     render(
       <Tabs className="root-class" data-root="yes" defaultValue="one" ref={tabsRef}>
         <TabList aria-labelledby="heading" className="list-class" ref={listRef}>
-          <Tab className="tab-class" data-tab="yes" onClick={onClick} ref={tabRef} value="one">One</Tab>
+        <Tab aria-controls="external-panel" className="tab-class" data-tab="yes" id="external-tab" onClick={onClick} ref={tabRef} value="one">One</Tab>
         </TabList>
         <TabPanel className="panel-class" data-panel="yes" ref={panelRef} value="one">Panel</TabPanel>
       </Tabs>,
@@ -195,6 +195,8 @@ describe('Tabs', () => {
     expect(tabsRef.current?.className).toContain('root-class')
     expect(listRef.current?.className).toContain('list-class')
     expect(tabRef.current?.className).toContain('tab-class')
+    expect(tabRef.current?.id).toBe('external-tab')
+    expect(tabRef.current?.getAttribute('aria-controls')).toBe('external-panel')
     expect(panelRef.current?.className).toContain('panel-class')
     expect(onClick).toHaveBeenCalledOnce()
   })
