@@ -1,0 +1,3 @@
+import { act } from 'react'; import { createRoot } from 'react-dom/client'; import { describe,expect,it } from 'vitest'; import { MilestoneList } from './MilestoneList'
+(globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT:boolean }).IS_REACT_ACT_ENVIRONMENT=true
+describe('MilestoneList',()=>{it('renders ordered milestone data with dates and states',()=>{const host=document.createElement('div');act(()=>createRoot(host).render(<MilestoneList milestones={[{title:'Creative assets locked',date:'Oct 10',state:'completed'},{title:'Campaigns go live',date:'Oct 22',state:'upcoming'}]}/>));expect(host.querySelectorAll('ol > li')).toHaveLength(2);expect(host.querySelector('time')?.textContent).toBe('Oct 10');expect(host.textContent).toContain('(completed)')})})

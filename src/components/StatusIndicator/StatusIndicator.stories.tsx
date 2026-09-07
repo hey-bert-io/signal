@@ -1,0 +1,2 @@
+import type { Meta,StoryObj } from '@storybook/react-vite'; import { StatusIndicator } from './StatusIndicator'
+const meta={title:'Components/Status Indicator',component:StatusIndicator,tags:['autodocs'],args:{label:'5 in progress',tone:'info',size:'small',showLabel:true},argTypes:{tone:{control:'select',options:['neutral','info','success','warning','danger']},size:{control:'select',options:['small','medium']}}} satisfies Meta<typeof StatusIndicator>; export default meta; export const Default:StoryObj<typeof meta>={}

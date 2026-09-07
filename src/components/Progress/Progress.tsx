@@ -1,0 +1,3 @@
+import './Progress.css'
+import type { ProgressProps } from './Progress.types'
+export function Progress({ className, label='Progress', max=100, showDetails=true, value, ...props }: ProgressProps){const safe=Math.min(Math.max(value,0),max);const percent=max>0?Math.round((safe/max)*100):0;return <div {...props} className={['signal-progress',className].filter(Boolean).join(' ')}>{showDetails?<div className="signal-progress__details"><span>{label}</span><span>{percent}%</span></div>:null}<div aria-label={label} aria-valuemax={max} aria-valuemin={0} aria-valuenow={safe} className="signal-progress__track" role="progressbar"><span className="signal-progress__indicator" style={{width:`${percent}%`}} /></div></div>}

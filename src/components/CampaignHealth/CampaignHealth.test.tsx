@@ -1,0 +1,4 @@
+import { act } from 'react'; import { createRoot } from 'react-dom/client'; import { describe,expect,it } from 'vitest'; import { CampaignHealth } from './CampaignHealth'
+(globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT:boolean }).IS_REACT_ACT_ENVIRONMENT=true
+const metrics=[{label:'Total tasks',value:30,detail:'+3 this week',tone:'success' as const}]
+describe('CampaignHealth',()=>{it('composes health primitives from product data',()=>{const host=document.createElement('div');act(()=>createRoot(host).render(<CampaignHealth blocked={3} completed={22} deadline="Nov 15, 2026" deadlineDetail="71 days remaining" inProgress={5} metrics={metrics} owner={{name:'Alex Rivera',initials:'AR'}} progress={73} status="On track"/>));expect(host.querySelector('.signal-status')?.textContent).toContain('On track');expect(host.querySelector('[role=progressbar]')?.getAttribute('aria-valuenow')).toBe('73');expect(host.textContent).toContain('Alex Rivera')})})

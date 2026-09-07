@@ -1,0 +1,2 @@
+import type { Meta,StoryObj } from '@storybook/react-vite'; import { CampaignHeader } from './CampaignHeader'
+const meta={title:'Patterns/Campaign Header',component:CampaignHeader,tags:['autodocs'],parameters:{layout:'padded'},args:{title:'Relay App Launch',description:'Drive 5,000 early signups through multi-channel activation.',taskCount:10}} satisfies Meta<typeof CampaignHeader>; export default meta; export const Default:StoryObj<typeof meta>={}

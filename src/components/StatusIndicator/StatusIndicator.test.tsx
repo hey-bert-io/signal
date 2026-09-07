@@ -1,0 +1,3 @@
+import { act } from 'react'; import { createRoot } from 'react-dom/client'; import { describe,expect,it } from 'vitest'; import { StatusIndicator } from './StatusIndicator'
+(globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT:boolean }).IS_REACT_ACT_ENVIRONMENT=true
+describe('StatusIndicator',()=>{it('renders tone, size, and optional label',()=>{const host=document.createElement('div');act(()=>createRoot(host).render(<StatusIndicator label="3 blocked" size="medium" tone="danger"/>));const item=host.firstElementChild!;expect(item.getAttribute('data-tone')).toBe('danger');expect(item.getAttribute('data-size')).toBe('medium');expect(item.textContent).toBe('3 blocked')})})

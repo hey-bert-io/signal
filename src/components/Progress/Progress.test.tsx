@@ -1,0 +1,3 @@
+import '../../tokens/index.css'; import { act } from 'react'; import { createRoot } from 'react-dom/client'; import { describe,expect,it } from 'vitest'; import { Progress } from './Progress'
+(globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT:boolean }).IS_REACT_ACT_ENVIRONMENT=true
+describe('Progress',()=>{it('exposes determinate semantics and clamps presentation',()=>{const host=document.createElement('div');act(()=>createRoot(host).render(<Progress label="Campaign progress" value={73}/>));const bar=host.querySelector('[role=progressbar]')!;expect(bar.getAttribute('aria-valuenow')).toBe('73');expect(bar.getAttribute('aria-label')).toBe('Campaign progress');expect((host.querySelector('.signal-progress__indicator') as HTMLElement).style.width).toBe('73%')})})
