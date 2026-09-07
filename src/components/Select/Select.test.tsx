@@ -192,14 +192,21 @@ describe('Select', () => {
     expect(ring.inset).toBe('-4px')
   })
 
-  it('shows its outer ring for keyboard focus but not pointer focus', async () => {
+  it('does not show its outer ring for pointer focus', async () => {
     const select = renderSelect()
     const control = container?.querySelector('.signal-select__control') as HTMLElement
 
     await act(async () => userEvent.click(select))
+    expect(document.activeElement).toBe(select)
     expect(getComputedStyle(control, '::after').display).toBe('none')
+  })
 
-    await act(async () => userEvent.keyboard('{ArrowDown}'))
+  it('shows its outer ring for keyboard focus', async () => {
+    const select = renderSelect()
+    const control = container?.querySelector('.signal-select__control') as HTMLElement
+
+    await act(async () => userEvent.tab())
+    expect(document.activeElement).toBe(select)
     expect(getComputedStyle(control, '::after').display).toBe('block')
   })
 
