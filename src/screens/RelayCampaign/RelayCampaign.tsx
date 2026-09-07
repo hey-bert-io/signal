@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ActivityFeed } from '../../components/ActivityItem'
 import { AppShell } from '../../components/AppShell'
 import { Button } from '../../components/Button'
+import { Card } from '../../components/Card'
 import { CampaignHeader, type CampaignView } from '../../components/CampaignHeader'
 import { CampaignHealth } from '../../components/CampaignHealth'
 import { CountBadge } from '../../components/CountBadge'
@@ -27,7 +28,26 @@ export interface RelayCampaignProps {
 }
 
 function OverviewView() {
-  return <div className="signal-relay-overview-content"><CampaignHealth blocked={3} completed={22} deadline="Nov 15, 2026" deadlineDetail="71 days remaining" inProgress={5} metrics={relayMetrics} owner={{initials:'AR',name:'Alex Rivera'}} progress={73} status="On track"/><section className="signal-relay-overview__brief"><h2>Campaign brief</h2><p>The Relay App Launch campaign targets early adopters in the B2B SaaS space. Our goal is to drive 5,000 signups in the first 30 days through a coordinated push across paid, organic, and earned channels. All creative assets must align with the updated brand guidelines released in September 2026.</p></section><MilestoneList milestones={relayMilestones}/></div>
+  return (
+    <div className="signal-relay-overview-content">
+      <CampaignHealth
+        blocked={3}
+        completed={22}
+        deadline="Nov 15, 2026"
+        deadlineDetail="71 days remaining"
+        inProgress={5}
+        metrics={relayMetrics}
+        owner={{ initials: 'AR', name: 'Alex Rivera' }}
+        progress={73}
+        status="On track"
+      />
+      <Card as="section" className="signal-relay-overview__brief">
+        <h2>Campaign brief</h2>
+        <p>The Relay App Launch campaign targets early adopters in the B2B SaaS space. Our goal is to drive 5,000 signups in the first 30 days through a coordinated push across paid, organic, and earned channels. All creative assets must align with the updated brand guidelines released in September 2026.</p>
+      </Card>
+      <MilestoneList milestones={relayMilestones}/>
+    </div>
+  )
 }
 
 function TasksView() {
@@ -43,5 +63,5 @@ function ActivityView() {
 export function RelayCampaign({ initialView = 'overview', onThemeToggle, onViewChange }: RelayCampaignProps) {
   const [view, setView] = useState<CampaignView>(initialView)
   const changeView = (next: CampaignView) => { setView(next); onViewChange?.(next) }
-  return <AppShell className={`signal-relay-campaign-shell signal-relay-campaign-shell--${view}`} identity={{initials:'AR',name:'Alex Rivera'}} navigation={[{href:'#overview',label:'Campaigns',icon:icon(gridIcon),current:true},{href:'#tasks',label:'My tasks',icon:icon(listIcon)},{href:'#analytics',label:'Analytics',icon:icon(chartIcon)},{href:'#team',label:'Team',icon:icon(usersIcon)}]} onThemeToggle={onThemeToggle} themeLabel="Toggle color theme" utilityNavigation={[{href:'#settings',label:'Settings',icon:icon(cogIcon)}]}><div className="signal-relay-campaign"><CampaignHeader description="Drive 5,000 early signups through multi-channel activation." onViewChange={changeView} title="Relay App Launch" view={view}/>{view === 'overview' ? <OverviewView/> : view === 'tasks' ? <TasksView/> : <ActivityView/>}</div></AppShell>
+  return <AppShell className={`signal-relay-campaign-shell signal-relay-campaign-shell--${view}`} identity={{initials:'AR',name:'Alex Rivera'}} navigation={[{href:'#overview',label:'Campaigns',icon:icon(gridIcon),current:true},{href:'#tasks',label:'My tasks',icon:icon(listIcon)},{href:'#analytics',label:'Analytics',icon:icon(chartIcon)},{href:'#team',label:'Team',icon:icon(usersIcon)}]} onThemeToggle={onThemeToggle} themeLabel="Light mode" utilityNavigation={[{href:'#settings',label:'Settings',icon:icon(cogIcon)}]}><div className="signal-relay-campaign"><CampaignHeader description="Drive 5,000 early signups through multi-channel activation." onViewChange={changeView} title="Relay App Launch" view={view}/>{view === 'overview' ? <OverviewView/> : view === 'tasks' ? <TasksView/> : <ActivityView/>}</div></AppShell>
 }

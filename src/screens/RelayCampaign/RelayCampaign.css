@@ -1,30 +1,42 @@
 .signal-relay-campaign-shell .signal-app-shell__content { padding: 34px 32px 48px; background: var(--color-surface-subtle); }
 .signal-relay-campaign { display:flex; width:min(960px,100%); flex-direction:column; margin:0 auto; }
+.signal-relay-campaign .signal-campaign-header__tabs { border:0; }
 .signal-relay-campaign-shell img { display:block; max-width:16px; max-height:16px; }
-.signal-relay-campaign-shell--overview .signal-relay-campaign { gap:24px; }
-.signal-relay-campaign-shell--tasks .signal-relay-campaign { gap:20px; }
+.signal-relay-campaign-shell--overview .signal-relay-campaign { gap:30px; }
+.signal-relay-campaign-shell--tasks .signal-relay-campaign { gap:26px; }
 .signal-relay-campaign-shell--activity .signal-relay-campaign { gap:30px; }
-.signal-relay-overview-content { display:flex; flex-direction:column; gap:24px; }
-.signal-relay-overview__brief { padding:0 16px; }
+.signal-relay-overview-content { display:flex; flex-direction:column; gap:20px; }
+.signal-relay-overview-content .signal-campaign-health { height:386px; }
+.signal-relay-overview__brief { height:138px; padding:16px 24px; }
 .signal-relay-overview__brief h2 { margin:0 0 10px; font:600 var(--font-size-body-emphasized)/var(--line-height-body-emphasized) var(--font-family-sans); }
 .signal-relay-overview__brief p { margin:0; color:var(--color-text-secondary); font:var(--font-weight-regular) var(--font-size-body)/var(--line-height-body-reading) var(--font-family-sans); }
+.signal-relay-overview-content .signal-milestone-list { height:194px; }
+.signal-relay-overview-content .signal-milestone-list h2 { margin-bottom:16px; }
+.signal-relay-overview-content .signal-milestone-list ol { gap:12px; }
 .signal-relay-tasks__section { display:flex; flex-direction:column; gap:16px; }
 .signal-relay-tasks__title { display:flex; align-items:center; gap:8px; }
 .signal-relay-tasks__title h2 { margin:0; font:600 var(--font-size-body-emphasized)/var(--line-height-body-emphasized) var(--font-family-sans); }
 .signal-relay-tasks__actions { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+.signal-relay-tasks__section .signal-task-table { margin-top:4px; }
 
 @media(max-width:1023px) and (min-width:768px){
   .signal-relay-campaign-shell .signal-app-shell__content { padding:34px 24px 48px; }
   .signal-relay-tasks__actions { gap:20px; }
-  .signal-relay-tasks__actions .signal-filter-bar { flex:1 1 auto; }
+  .signal-relay-tasks__actions .signal-filter-bar { width:304px; flex:none; grid-template-columns:80px 120px 80px; }
   .signal-relay-tasks__actions .signal-button { flex:none; }
+  .signal-relay-overview__brief { height:186px; }
 }
 
 @media(max-width:767px){
   .signal-relay-campaign-shell .signal-app-shell__content { padding:9px 16px 27px; }
+  .signal-relay-campaign-shell--overview .signal-app-shell__content { padding-bottom:43px; }
+  .signal-relay-campaign-shell--tasks .signal-app-shell__content { padding-bottom:16px; }
   .signal-relay-campaign-shell--overview .signal-relay-campaign,
   .signal-relay-campaign-shell--tasks .signal-relay-campaign { gap:20px; }
   .signal-relay-campaign-shell--activity .signal-relay-campaign { gap:32px; }
   .signal-relay-tasks__actions { align-items:stretch; flex-direction:column; gap:16px; }
+  .signal-relay-tasks__actions .signal-filter-bar { width:100%; grid-template-columns:80px 120px 80px; }
   .signal-relay-tasks__actions .signal-button { align-self:flex-end; }
+  .signal-relay-overview-content .signal-campaign-health { height:630px; }
+  .signal-relay-overview__brief { height:234px; }
 }

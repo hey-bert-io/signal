@@ -10,7 +10,7 @@ export function TaskRow({ task, onSelectionChange }: { task: TaskRecord; onSelec
   return (
     <DataTableRow>
       <DataTableCell className="signal-task-table__selection">
-        <Checkbox aria-label={`Select ${task.title}`} checked={task.selected} label="" onChange={(event) => onSelectionChange?.(task.id, event.target.checked)} />
+        <Checkbox aria-label={`Select ${task.title}`} checked={Boolean(task.selected)} label="" onChange={(event) => onSelectionChange?.(task.id, event.target.checked)} />
       </DataTableCell>
       <DataTableCell className="signal-task-table__task">{task.title}</DataTableCell>
       <DataTableCell className="signal-task-table__status"><Status tone={task.status.tone}>{task.status.label}</Status></DataTableCell>

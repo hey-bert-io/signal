@@ -2,9 +2,10 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  border: 1px solid var(--color-border-subtle);
+  border: 0;
   border-radius: var(--radius-8);
   background: var(--color-surface-default);
+  box-shadow: inset 0 0 0 1px var(--color-border-subtle);
   list-style: none;
 }
 .signal-activity-item {
@@ -18,7 +19,7 @@
   background: var(--color-surface-default);
   font: var(--font-weight-regular) var(--font-size-body)/var(--line-height-body) var(--font-family-sans);
 }
-.signal-activity-item:not(:last-child) { border-bottom: 1px solid var(--color-border-subtle); }
+.signal-activity-item:not(:last-child) { box-shadow: inset 0 -1px var(--color-border-subtle); }
 .signal-activity-item__body {
   display: grid;
   min-width: 0;
@@ -32,7 +33,8 @@
   display: flex;
   min-width: 0;
   align-items: center;
-  gap: 4px;
+  column-gap: 4px;
+  row-gap: 0;
   margin: 0;
   overflow: hidden;
   white-space: nowrap;

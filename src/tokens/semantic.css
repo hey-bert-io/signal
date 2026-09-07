@@ -14,6 +14,7 @@
   --color-text-inverse: var(--primitive-neutral-0);
   --color-text-brand: var(--primitive-brand-600);
   --color-border-default: var(--primitive-neutral-300);
+  --color-border-subtle: #dedad3;
   --color-border-strong: var(--primitive-neutral-500);
   --color-border-focus: var(--primitive-brand-600);
   --color-action-primary: var(--primitive-brand-600);
@@ -46,6 +47,7 @@
   --color-text-inverse: var(--primitive-neutral-900);
   --color-text-brand: var(--primitive-brand-300);
   --color-border-default: var(--primitive-neutral-600);
+  --color-border-subtle: #282828;
   --color-border-strong: var(--primitive-neutral-300);
   --color-border-focus: var(--primitive-brand-300);
   --color-action-primary: var(--primitive-brand-300);
