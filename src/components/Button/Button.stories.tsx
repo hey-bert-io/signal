@@ -17,9 +17,9 @@ const ArrowRightIcon = () => (
 )
 
 const meta = {
-  title: 'Components/Button',
+  title: '02 Components/Button',
   component: Button,
-  parameters: { layout: 'centered' },
+  parameters: { layout: 'centered', docs: { description: { component: 'Signal’s general-purpose action control. Choose variants by action emphasis, not decoration; use concise labels and reserve danger for destructive outcomes.' } } },
   tags: ['autodocs'],
   args: { children: 'Save changes', onClick: fn() },
   argTypes: {
@@ -35,7 +35,7 @@ const Row = ({ children }: { children: ReactNode }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>{children}</div>
 )
 
-export const Overview: Story = {
+export const Default: Story = {
   play: async ({ canvasElement }) => {
     const button = within(canvasElement).getByRole('button', { name: 'Save changes' })
     await document.fonts.load('500 14px "IBM Plex Sans"')
@@ -79,10 +79,12 @@ export const LeadingIcon: Story = { args: { leadingIcon: <PlusIcon /> } }
 export const TrailingIcon: Story = { args: { children: 'Continue', trailingIcon: <ArrowRightIcon /> } }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   decorators: [
     (Story) => (
       <div data-theme="dark" style={{ background: 'var(--color-background-default)', padding: 32 }}>

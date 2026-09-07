@@ -1,0 +1,107 @@
+.foundation-page {
+  display: grid;
+  gap: var(--spacing-32);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.foundation-intro {
+  display: grid;
+  gap: var(--spacing-8);
+  max-width: 680px;
+}
+
+.foundation-intro h1,
+.foundation-intro p,
+.foundation-section h2,
+.foundation-section p {
+  margin: 0;
+}
+
+.foundation-intro h1 {
+  font-size: var(--font-size-page-heading);
+  line-height: var(--line-height-page-heading);
+}
+
+.foundation-intro p,
+.foundation-section p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body-reading);
+}
+
+.foundation-section {
+  display: grid;
+  gap: var(--spacing-16);
+}
+
+.foundation-section h2 {
+  font-size: var(--font-size-body-emphasized);
+  line-height: var(--line-height-body-emphasized);
+}
+
+.foundation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(136px, 1fr));
+  gap: var(--spacing-16);
+}
+
+.foundation-swatch {
+  overflow: hidden;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-8);
+  background: var(--color-surface-raised);
+}
+
+.foundation-swatch__color {
+  height: 80px;
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.foundation-swatch__label {
+  display: grid;
+  gap: var(--spacing-2);
+  padding: var(--spacing-12);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-label);
+}
+
+.foundation-swatch__label code,
+.foundation-token code {
+  color: var(--color-text-secondary);
+  font: inherit;
+}
+
+.foundation-type-sample,
+.foundation-token {
+  display: grid;
+  gap: var(--spacing-8);
+  padding: var(--spacing-16);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-8);
+  background: var(--color-surface-raised);
+}
+
+.foundation-token-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--spacing-16);
+}
+
+.foundation-spacing-sample {
+  width: var(--sample-size);
+  height: var(--sample-size);
+  min-width: 2px;
+  min-height: 2px;
+  background: var(--color-action-primary);
+}
+
+.foundation-radius-sample {
+  width: 88px;
+  height: 64px;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--sample-radius);
+  background: var(--color-surface-selected);
+}

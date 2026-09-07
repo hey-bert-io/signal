@@ -34,7 +34,7 @@ const Row = ({ children }: { children: ReactNode }) => (
 )
 
 const meta = {
-  title: 'Components/Icon Button',
+  title: '02 Components/Icon Button',
   component: IconButton,
   parameters: {
     layout: 'centered',
@@ -56,7 +56,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Overview: Story = {
+export const Default: Story = {
   play: async ({ canvasElement }) => {
     const button = within(canvasElement).getByRole('button', { name: 'Search' })
     await expect(button.dataset.variant).toBe('primary')
@@ -108,10 +108,12 @@ export const LabelledBy: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   decorators: [
     (Story) => (
       <div data-theme="dark" style={{ background: 'var(--color-background-default)', padding: 32 }}>

@@ -1,8 +1,10 @@
 # Signal
 
-Signal is a React and TypeScript design system for software product teams. Figma is the source of truth; the implementation preserves its primitive, semantic, geometry, and component-token hierarchy.
+Signal is a React and TypeScript design system and reusable component library for software product teams. Its implementation carries a shared token and theme architecture from foundations through accessible components and product-level patterns.
 
-Pass 01 contains the core token and theme architecture plus Button as the first complete component slice.
+Relay is the responsive campaign-management product built with Signal. Its Overview, Tasks, and Activity screens demonstrate the same components and patterns working together in a realistic interface.
+
+Storybook is the primary proof artifact: it presents the progression from Signal foundations, to components, to reusable product patterns, to complete Relay screens. Light and dark themes and desktop, tablet, and mobile viewports can be selected from the Storybook toolbar.
 
 ## Commands
 
@@ -14,6 +16,8 @@ npm run lint
 npm run build
 npm run build-storybook
 ```
+
+Run `npm run storybook` for local exploration. Before submitting changes, run lint, tests, the production build, and the Storybook build.
 
 ## Public API
 

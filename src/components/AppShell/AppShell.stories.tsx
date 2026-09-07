@@ -22,7 +22,7 @@ const navigation = [
 const utilityNavigation = [{ href: '#settings', icon: <Icon source={cogIcon} />, label: 'Settings' }]
 
 const meta = {
-  title: 'Patterns/App Shell',
+  title: '03 Patterns/App Shell',
   component: AppShell,
   parameters: {
     layout: 'fullscreen',
@@ -52,7 +52,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Desktop: Story = {
-  parameters: { viewport: { defaultViewport: 'desktop1440' } },
+  globals: { viewport: { value: 'desktop1440', isRotated: false } },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByRole('link', { name: 'Campaigns' })).toHaveAttribute('aria-current', 'page')
@@ -60,10 +60,10 @@ export const Desktop: Story = {
   },
 }
 
-export const Tablet: Story = { parameters: { viewport: { defaultViewport: 'tablet768' } } }
+export const Tablet: Story = { globals: { viewport: { value: 'tablet768', isRotated: false } } }
 
 export const Mobile: Story = {
-  parameters: { viewport: { defaultViewport: 'mobile393' } },
+  globals: { viewport: { value: 'mobile393', isRotated: false } },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByRole('button', { name: 'Open navigation menu' })).toBeVisible()

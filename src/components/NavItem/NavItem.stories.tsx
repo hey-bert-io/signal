@@ -24,7 +24,7 @@ const ThemePreview = () => (
 )
 
 const meta = {
-  title: 'Components/Nav Item',
+  title: '02 Components/Nav Item',
   component: NavItem,
   parameters: {
     layout: 'padded',
@@ -42,7 +42,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => <Frame><NavItem {...args} /></Frame>,
 }
 
@@ -136,11 +136,13 @@ export const NavigationComposition: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
   render: () => <ThemePreview />,
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   decorators: [
     (Story) => (
       <div data-theme="dark" style={{ minHeight: 180, padding: 24, background: 'var(--color-surface-default)' }}>

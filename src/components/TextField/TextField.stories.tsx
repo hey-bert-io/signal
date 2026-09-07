@@ -5,7 +5,7 @@ import { expect, userEvent, within } from 'storybook/test'
 import { TextField } from './TextField'
 
 const meta = {
-  title: 'Components/Text Field',
+  title: '02 Components/Text Field',
   component: TextField,
   parameters: {
     layout: 'centered',
@@ -104,11 +104,13 @@ export const VisuallyHiddenLabel: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   args: { helperText: 'Give this project a clear name.' },
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   args: { helperText: 'Give this project a clear name.' },
   decorators: [
     (Story) => (

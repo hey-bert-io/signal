@@ -5,7 +5,7 @@ import { expect, within } from 'storybook/test'
 import { Status } from './Status'
 
 const meta = {
-  title: 'Components/Status',
+  title: '02 Components/Status',
   component: Status,
   parameters: {
     layout: 'centered',
@@ -89,11 +89,13 @@ export const ConstrainedParent: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   render: () => <AllTonesShowcase />,
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   render: () => <AllTonesShowcase />,
   decorators: [
     (Story) => (

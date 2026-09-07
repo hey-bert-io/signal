@@ -13,7 +13,7 @@ const StatusOptions = () => (
 )
 
 const meta = {
-  title: 'Components/Select',
+  title: '02 Components/Select',
   component: Select,
   parameters: {
     layout: 'centered',
@@ -103,11 +103,13 @@ function ControlledExample() {
 export const Controlled: Story = { render: () => <ControlledExample /> }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   args: { helperText: 'Choose the current project status.' },
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   args: { helperText: 'Choose the current project status.' },
   decorators: [
     (Story) => (

@@ -5,7 +5,7 @@ import { expect, userEvent, within } from 'storybook/test'
 import { Tab, TabList, TabPanel, Tabs } from './Tabs'
 
 const meta = {
-  title: 'Components/Tabs',
+  title: '02 Components/Tabs',
   component: Tabs,
   parameters: {
     layout: 'padded',
@@ -124,11 +124,13 @@ export const LongerLabels: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   render: () => <ProjectTabs />,
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   render: () => <ProjectTabs />,
   decorators: [(Story) => <div data-theme="dark" style={{ background: 'var(--color-background-default)', color: 'var(--color-text-primary)', padding: 32 }}><Story /></div>],
 }

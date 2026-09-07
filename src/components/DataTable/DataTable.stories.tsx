@@ -138,7 +138,7 @@ function SortingExample() {
 }
 
 const meta = {
-  title: 'Components/Data Table',
+  title: '02 Components/Data Table',
   component: DataTable,
   parameters: {
     layout: 'padded',
@@ -154,7 +154,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Basic: Story = {
+export const Default: Story = {
   render: () => <BasicTable />,
 }
 
@@ -256,9 +256,11 @@ export const FocusEdges: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   render: () => <MixedTable theme="light" />,
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   render: () => <MixedTable theme="dark" />,
 }

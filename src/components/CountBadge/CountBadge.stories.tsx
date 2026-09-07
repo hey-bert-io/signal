@@ -5,7 +5,7 @@ import { expect, within } from 'storybook/test'
 import { CountBadge } from './CountBadge'
 
 const meta = {
-  title: 'Components/Count Badge',
+  title: '02 Components/Count Badge',
   component: CountBadge,
   parameters: {
     layout: 'padded',
@@ -26,7 +26,7 @@ const Row = ({ children }: { children: ReactNode }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>{children}</div>
 )
 
-export const Basic: Story = {
+export const Default: Story = {
   play: async ({ canvasElement }) => {
     await document.fonts.ready
     const badge = within(canvasElement).getByText('24')
@@ -64,6 +64,7 @@ export const InContext: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
   play: async ({ canvasElement }) => {
     const badge = within(canvasElement).getByText('24')
@@ -74,6 +75,7 @@ export const LightTheme: Story = {
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   decorators: [
     (Story) => (
       <div data-theme="dark" style={{ background: 'var(--color-background-default)', color: 'var(--color-text-primary)', padding: 32 }}>

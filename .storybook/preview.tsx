@@ -1,19 +1,28 @@
-import type { Preview } from '@storybook/react-vite'
+import type { Decorator, Preview } from '@storybook/react-vite'
 
 import '../src/tokens/index.css'
 import '../src/styles/global.css'
 import './preview.css'
-import { ThemeProvider } from '../src/theme/ThemeProvider'
+import type { SignalTheme } from '../src/theme/theme.types'
+import { SignalThemeDecorator } from './SignalThemeDecorator'
+
+const withSignalTheme: Decorator = (Story, context) => (
+  <SignalThemeDecorator theme={context.globals.theme as SignalTheme}>
+    <Story />
+  </SignalThemeDecorator>
+)
 
 const preview: Preview = {
   globalTypes: {
     theme: {
       description: 'Signal color theme',
       toolbar: {
-        icon: 'mirror',
+        icon: 'paintbrush',
+        title: 'Theme',
+        dynamicTitle: true,
         items: [
-          { value: 'light', title: 'Light' },
-          { value: 'dark', title: 'Dark' },
+          { value: 'light', title: 'Light', icon: 'sun' },
+          { value: 'dark', title: 'Dark', icon: 'moon' },
         ],
       },
     },
@@ -21,14 +30,48 @@ const preview: Preview = {
   initialGlobals: {
     theme: 'light',
   },
-  decorators: [
-    (Story, context) => (
-      <ThemeProvider className="signal-storybook-theme" defaultTheme={context.globals.theme} key={context.globals.theme}>
-        <Story />
-      </ThemeProvider>
-    ),
-  ],
+  decorators: [withSignalTheme],
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          '01 Foundations',
+          ['Colors', 'Typography', 'Spacing', 'Radius'],
+          '02 Components',
+          [
+            'Button',
+            'Icon Button',
+            'Text Field',
+            'Select',
+            'Checkbox',
+            'Status',
+            'Status Indicator',
+            'Avatar',
+            'Progress',
+            'Tabs',
+            'Card',
+            'Data Table',
+            'Nav Item',
+            'Count Badge',
+          ],
+          '03 Patterns',
+          [
+            'Filter Bar',
+            'Campaign Header',
+            'Campaign Health',
+            'Milestone List',
+            'User Identity',
+            'Task Row',
+            'Task Table',
+            'Activity Item',
+            'Activity Feed',
+            'App Shell',
+          ],
+          '04 Relay',
+          ['Overview', 'Tasks', 'Activity', 'Interactive Campaign'],
+        ],
+      },
+    },
     viewport: {
       options: {
         desktop1440: { name: 'Desktop 1440', styles: { width: '1440px', height: '1024px' } },
@@ -44,8 +87,8 @@ const preview: Preview = {
     },
 
     a11y: {
-      test: 'error'
-    }
+      test: 'error',
+    },
   },
 };
 

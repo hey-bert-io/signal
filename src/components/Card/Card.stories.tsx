@@ -7,7 +7,7 @@ import { Status } from '../Status'
 import { Card } from './Card'
 
 const meta = {
-  title: 'Components/Card',
+  title: '02 Components/Card',
   component: Card,
   parameters: {
     layout: 'padded',
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>
 
 const cardWidth = { width: 'min(100%, 400px)' }
 
-export const Basic: Story = {
+export const Default: Story = {
   render: () => (
     <Card style={cardWidth}>
       <p style={{ margin: 0 }}>Card content is supplied entirely by the consumer.</p>
@@ -69,11 +69,13 @@ export const WithSignalComponents: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   render: () => <Card style={cardWidth}>Light theme Card</Card>,
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   render: () => <Card style={cardWidth}>Dark theme Card</Card>,
   decorators: [
     (Story) => (

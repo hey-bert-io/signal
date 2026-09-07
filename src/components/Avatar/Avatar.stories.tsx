@@ -6,7 +6,7 @@ import avatarPerson from './avatar-person.jpg'
 import { Avatar } from './Avatar'
 
 const meta = {
-  title: 'Components/Avatar',
+  title: '02 Components/Avatar',
   component: Avatar,
   parameters: {
     layout: 'centered',
@@ -40,14 +40,14 @@ const AllSizesShowcase = () => (
 )
 
 export const Default: Story = {}
-export const Initials24: Story = { args: { initials: 'EC', size: 24 } }
-export const Initials32: Story = { args: { initials: 'EC', size: 32 } }
-export const Initials40: Story = { args: { initials: 'EC', size: 40 } }
-export const Image24: Story = { args: { src: avatarPerson, size: 24 } }
-export const Image32: Story = { args: { src: avatarPerson, size: 32 } }
-export const Image40: Story = { args: { src: avatarPerson, size: 40 } }
-export const OneCharacter: Story = { args: { initials: 'A', size: 40 } }
-export const TwoCharacters: Story = { args: { initials: 'MS', size: 40 } }
+export const Initials24: Story = { args: { initials: 'EC', size: 24 }, tags: ['!dev'] }
+export const Initials32: Story = { args: { initials: 'EC', size: 32 }, tags: ['!dev'] }
+export const Initials40: Story = { args: { initials: 'EC', size: 40 }, tags: ['!dev'] }
+export const Image24: Story = { args: { src: avatarPerson, size: 24 }, tags: ['!dev'] }
+export const Image32: Story = { args: { src: avatarPerson, size: 32 }, tags: ['!dev'] }
+export const Image40: Story = { args: { src: avatarPerson, size: 40 }, tags: ['!dev'] }
+export const OneCharacter: Story = { args: { initials: 'A', size: 40 }, tags: ['!dev'] }
+export const TwoCharacters: Story = { args: { initials: 'MS', size: 40 }, tags: ['!dev'] }
 
 export const AllSizes: Story = {
   render: () => <AllSizesShowcase />,
@@ -87,11 +87,13 @@ export const AvatarOnlyNamedParent: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   render: () => <AllSizesShowcase />,
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   render: () => <AllSizesShowcase />,
   decorators: [
     (Story) => (

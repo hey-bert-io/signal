@@ -1,5 +1,34 @@
+.sb-show-main,
+.docs-story {
+  color: var(--color-text-primary);
+  background: var(--color-background-default);
+}
+
 .signal-storybook-theme {
   min-height: 100vh;
   color: var(--color-text-primary);
   background: var(--color-background-default);
+}
+
+.sbdocs-wrapper,
+.sbdocs-preview,
+.sbdocs-content {
+  color: var(--color-text-primary);
+  background: var(--color-background-default);
+}
+
+.sbdocs-title,
+.sbdocs-subtitle,
+.sbdocs-content p,
+.sbdocs-content li,
+.sbdocs-content td,
+.sbdocs-content th,
+.sbdocs-content code,
+.sbdocs-h1,
+.sbdocs-h2,
+.sbdocs-h3,
+.sbdocs-h4,
+.sbdocs-h5,
+.sbdocs-h6 {
+  color: var(--color-text-primary) !important;
 }

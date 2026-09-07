@@ -5,7 +5,7 @@ import avatarPerson from '../Avatar/avatar-person.jpg'
 import { UserIdentity } from './UserIdentity'
 
 const meta = {
-  title: 'Patterns/User Identity',
+  title: '03 Patterns/User Identity',
   component: UserIdentity,
   parameters: {
     layout: 'centered',

@@ -1,2 +1,12 @@
-import type { Meta,StoryObj } from '@storybook/react-vite'; import { MilestoneList } from './MilestoneList'
-const meta={title:'Patterns/Milestone List',component:MilestoneList,tags:['autodocs'],parameters:{layout:'padded'},args:{milestones:[{title:'Creative assets locked',date:'Oct 10',state:'completed'},{title:'Campaigns go live',date:'Oct 22',state:'upcoming'},{title:'Mid-campaign review',date:'Nov 1',state:'upcoming'},{title:'Wrap-up and reporting',date:'Nov 15',state:'upcoming'}]}} satisfies Meta<typeof MilestoneList>; export default meta; export const Connected:StoryObj<typeof meta>={}
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { relayMilestones } from '../../data/relay'
+import { MilestoneList } from './MilestoneList'
+
+const meta = {
+  title: '03 Patterns/Milestone List', component: MilestoneList, tags: ['autodocs'],
+  parameters: { layout: 'padded', docs: { description: { component: 'A compact schedule pattern for completed and upcoming campaign milestones.' } } },
+  args: { milestones: relayMilestones },
+} satisfies Meta<typeof MilestoneList>
+
+export default meta
+export const Default: StoryObj<typeof meta> = {}

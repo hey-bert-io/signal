@@ -5,7 +5,7 @@ import { expect, userEvent, within } from 'storybook/test'
 import { Checkbox } from './Checkbox'
 
 const meta = {
-  title: 'Components/Checkbox',
+  title: '02 Components/Checkbox',
   component: Checkbox,
   parameters: {
     layout: 'centered',
@@ -88,11 +88,13 @@ export const KeyboardToggle: Story = {
 }
 
 export const LightTheme: Story = {
+  tags: ['!dev'],
   args: { supportingText: 'Send a notification when this task changes.' },
   decorators: [(Story) => <div data-theme="light"><Story /></div>],
 }
 
 export const DarkTheme: Story = {
+  tags: ['!dev'],
   args: { supportingText: 'Send a notification when this task changes.' },
   decorators: [
     (Story) => (
