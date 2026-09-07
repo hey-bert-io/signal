@@ -71,8 +71,9 @@ export const Focus: Story = {
   args: { helperText: 'Give this project a clear name.' },
   play: async ({ canvasElement }) => {
     const input = within(canvasElement).getByLabelText('Project name')
-    await userEvent.click(input)
+    await userEvent.tab()
     await expect(input).toHaveFocus()
+    await expect(input.matches(':focus-visible')).toBe(true)
   },
 }
 
@@ -80,7 +81,7 @@ export const ErrorAndFocus: Story = {
   args: { defaultValue: 'Invalid project', error: 'Enter a valid project name.' },
   play: async ({ canvasElement }) => {
     const input = within(canvasElement).getByLabelText('Project name')
-    await userEvent.click(input)
+    await userEvent.tab()
     await expect(input).toHaveFocus()
     await expect(input).toHaveAttribute('aria-invalid', 'true')
   },

@@ -5,7 +5,7 @@
   width: 100%;
   min-width: 0;
   color: var(--select-text);
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-family-sans);
   --signal-field-muted: var(--select-muted);
   --signal-field-error: var(--select-error);
 }
@@ -32,10 +32,10 @@
   color: var(--select-text);
   background: var(--select-background);
   font-family: inherit;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-default);
   cursor: pointer;
   appearance: none;
 }
@@ -63,11 +63,11 @@
   content: '';
 }
 
-.signal-select:focus-within .signal-select__control::after {
+.signal-select[data-focus-visible] .signal-select__control::after {
   display: block;
 }
 
-.signal-select__select:focus {
+.signal-select[data-focus-visible] .signal-select__select {
   border-color: var(--select-focus);
 }
 

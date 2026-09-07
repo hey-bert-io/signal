@@ -6,7 +6,7 @@
   gap: var(--spacing-8);
   padding: var(--spacing-2) var(--spacing-0);
   color: var(--checkbox-text);
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-family-sans);
   cursor: pointer;
 }
 
@@ -88,18 +88,18 @@
 
 .signal-checkbox__label {
   color: var(--checkbox-text);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-default);
 }
 
 .signal-checkbox__supporting {
   color: var(--checkbox-muted);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
-  letter-spacing: 0;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-label);
+  letter-spacing: var(--letter-spacing-default);
 }
 
 .signal-checkbox:has(.signal-checkbox__input:disabled) {

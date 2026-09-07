@@ -25,11 +25,11 @@
   border-radius: 0;
   color: var(--tab-foreground);
   background: transparent;
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-default);
   white-space: nowrap;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;

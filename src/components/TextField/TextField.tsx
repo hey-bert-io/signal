@@ -1,6 +1,6 @@
 import './TextField.css'
 
-import { useId } from 'react'
+import { useId, useRef, useState } from 'react'
 
 import { FieldLabel } from '../internal/FieldLabel'
 import { FieldMessage } from '../internal/FieldMessage'
@@ -22,6 +22,8 @@ export function TextField({
   ...inputProps
 }: TextFieldProps) {
   const generatedId = useId()
+  const pointerFocus = useRef(false)
+  const [focusVisible, setFocusVisible] = useState(false)
   const inputId = id ?? `signal-text-field-${generatedId}`
   const hasError = error !== undefined && error !== null && error !== false
   const hasHelper = helperText !== undefined && helperText !== null && helperText !== false
@@ -39,7 +41,22 @@ export function TextField({
   }
 
   return (
-    <div className={classes} data-invalid={hasError || undefined} data-size={size}>
+    <div
+      className={classes}
+      data-focus-visible={focusVisible || undefined}
+      data-invalid={hasError || undefined}
+      data-size={size}
+      onBlurCapture={() => setFocusVisible(false)}
+      onFocusCapture={(event) => {
+        setFocusVisible(!pointerFocus.current && event.target.matches(':focus-visible'))
+        pointerFocus.current = false
+      }}
+      onKeyDownCapture={() => setFocusVisible(true)}
+      onPointerDownCapture={() => {
+        pointerFocus.current = true
+        setFocusVisible(false)
+      }}
+    >
       <FieldLabel hideLabel={hideLabel} htmlFor={inputId} optional={optional}>{label}</FieldLabel>
 
       <div className="signal-text-field__control">

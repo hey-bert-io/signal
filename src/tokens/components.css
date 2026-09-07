@@ -1,16 +1,32 @@
 :root,
+[data-theme='light'] {
+  --color-component-button-primary-background: #4f46e5;
+  --color-component-button-primary-background-hover: #4338ca;
+  --color-component-button-primary-background-pressed: #211c54;
+  --color-component-button-primary-foreground-hover: var(--primitive-neutral-0);
+}
+
+[data-theme='dark'] {
+  --color-component-button-primary-background: #4f46e5;
+  --color-component-button-primary-background-hover: #a5b4fc;
+  --color-component-button-primary-background-pressed: #4338ca;
+  --color-component-button-primary-foreground-hover: var(--primitive-neutral-900);
+}
+
+:root,
 [data-theme='light'],
 [data-theme='dark'] {
-  --button-primary-background: var(--color-action-primary);
-  --button-primary-background-hover: var(--color-action-primary-hover);
-  --button-primary-background-pressed: var(--color-action-primary-pressed);
-  --button-primary-foreground: var(--color-text-inverse);
+  --button-primary-background: var(--color-component-button-primary-background);
+  --button-primary-background-hover: var(--color-component-button-primary-background-hover);
+  --button-primary-background-pressed: var(--color-component-button-primary-background-pressed);
+  --button-primary-foreground: var(--primitive-neutral-0);
+  --button-primary-foreground-hover: var(--color-component-button-primary-foreground-hover);
   --button-subtle-background: var(--color-surface-default);
   --button-subtle-background-hover: var(--color-surface-subtle);
   --button-subtle-background-pressed: var(--color-surface-selected);
   --button-neutral-foreground: var(--color-text-primary);
   --button-neutral-border: var(--color-border-strong);
-  --button-danger-foreground: var(--color-text-inverse);
+  --button-danger-foreground: var(--primitive-neutral-0);
   --button-danger-background: var(--primitive-red-600);
   --button-danger-background-hover: var(--primitive-red-700);
   --button-danger-background-pressed: var(--primitive-red-900);

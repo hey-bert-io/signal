@@ -25,11 +25,26 @@
   height: var(--size-control-large);
 }
 
+@media (pointer: coarse) {
+  .signal-icon-button[data-size='small']::before,
+  .signal-icon-button[data-size='medium']::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--size-control-large);
+    height: var(--size-control-large);
+    content: '';
+    transform: translate(-50%, -50%);
+  }
+}
+
 .signal-icon-button[data-variant='primary']:hover:not(:disabled) {
+  color: var(--button-primary-foreground-hover);
   background: var(--button-primary-background-hover);
 }
 
 .signal-icon-button[data-variant='primary']:active:not(:disabled) {
+  color: var(--button-primary-foreground);
   background: var(--button-primary-background-pressed);
 }
 

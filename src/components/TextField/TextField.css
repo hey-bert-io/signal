@@ -5,7 +5,7 @@
   width: 100%;
   min-width: 0;
   color: var(--text-field-text);
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-family-sans);
   --signal-field-muted: var(--text-field-muted);
   --signal-field-error: var(--text-field-error);
 }
@@ -32,10 +32,10 @@
   color: var(--text-field-text);
   background: var(--text-field-background);
   font-family: inherit;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-default);
 }
 
 .signal-text-field[data-size='large'] .signal-text-field__input {
@@ -57,11 +57,11 @@
   content: '';
 }
 
-.signal-text-field:focus-within .signal-text-field__control::after {
+.signal-text-field[data-focus-visible] .signal-text-field__control::after {
   display: block;
 }
 
-.signal-text-field__input:focus {
+.signal-text-field[data-focus-visible] .signal-text-field__input {
   border-color: var(--text-field-focus);
 }
 

@@ -6,6 +6,11 @@ import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { IconButton } from './IconButton'
+import type { IconButtonProps } from './IconButton.types'
+
+// @ts-expect-error IconButton requires aria-label or aria-labelledby.
+const unnamedIconButtonProps: IconButtonProps = { icon: null }
+void unnamedIconButtonProps;
 
 (globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true
 
@@ -23,9 +28,8 @@ function renderIconButton(props: Partial<React.ComponentProps<typeof IconButton>
   container = document.createElement('div')
   document.body.append(container)
   root = createRoot(container)
-  act(() => root?.render(
-    <IconButton aria-label="Search" icon={<SearchIcon />} {...props} />,
-  ))
+  const buttonProps = { 'aria-label': 'Search', icon: <SearchIcon />, ...props } as IconButtonProps
+  act(() => root?.render(<IconButton {...buttonProps} />))
 
   const button = container.querySelector('button')
   if (!button) throw new Error('IconButton did not render')
@@ -60,6 +64,16 @@ afterEach(() => {
 })
 
 describe('IconButton', () => {
+  it('mirrors the Button hover-specific Primary foreground behavior', () => {
+    renderIconButton({ variant: 'primary' })
+    const rules = Array.from(document.styleSheets)
+      .flatMap((sheet) => Array.from(sheet.cssRules))
+      .map((rule) => rule.cssText)
+      .join('\n')
+    expect(rules).toContain('color: var(--button-primary-foreground-hover)')
+    expect(rules).toContain('color: var(--button-primary-foreground)')
+  })
+
   it('renders a supplied icon with native button semantics', () => {
     const button = renderIconButton()
     expect(button.tagName).toBe('BUTTON')
@@ -117,6 +131,28 @@ describe('IconButton', () => {
 
     const results = await axe.run(container)
     expect(results.violations).toEqual([])
+  })
+
+  it.each([
+    ['small', '32px'],
+    ['medium', '36px'],
+    ['large', '44px'],
+  ] as const)('keeps the %s visible geometry at %s', (size, expected) => {
+    const styles = getComputedStyle(renderIconButton({ size }))
+    expect(styles.width).toBe(expected)
+    expect(styles.height).toBe(expected)
+  })
+
+  it('declares a coarse-pointer 44px hit target for small and medium sizes', () => {
+    renderIconButton({ size: 'small' })
+    const rules = Array.from(document.styleSheets)
+      .flatMap((sheet) => Array.from(sheet.cssRules))
+      .map((rule) => rule.cssText)
+      .join('\n')
+    expect(rules).toContain('(pointer: coarse)')
+    expect(rules).toContain('.signal-icon-button[data-size="small"]::before')
+    expect(rules).toContain('width: var(--size-control-large)')
+    expect(rules).toContain('height: var(--size-control-large)')
   })
 
   it('passes axe checks when correctly named', async () => {

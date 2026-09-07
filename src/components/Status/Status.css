@@ -13,11 +13,11 @@
   gap: 6px;
   color: var(--signal-status-foreground);
   background: var(--signal-status-background);
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
-  letter-spacing: 0;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-label);
+  letter-spacing: var(--letter-spacing-default);
   white-space: nowrap;
 }
 

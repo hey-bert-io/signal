@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { expect, within } from 'storybook/test'
+import { expect, userEvent, within } from 'storybook/test'
 
 import { Select } from './Select'
 
@@ -70,8 +70,9 @@ export const Error: Story = {
 export const Focus: Story = {
   play: async ({ canvasElement }) => {
     const select = within(canvasElement).getByLabelText('Status')
-    select.focus()
+    await userEvent.tab()
     await expect(select).toHaveFocus()
+    await expect(select.matches(':focus-visible')).toBe(true)
   },
 }
 
@@ -79,7 +80,7 @@ export const ErrorAndFocus: Story = {
   args: { error: 'Select a status.' },
   play: async ({ canvasElement }) => {
     const select = within(canvasElement).getByLabelText('Status')
-    select.focus()
+    await userEvent.tab()
     await expect(select).toHaveFocus()
     await expect(select).toHaveAttribute('aria-invalid', 'true')
   },

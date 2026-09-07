@@ -1,6 +1,7 @@
 import '../../tokens/index.css'
 
 import axe from 'axe-core'
+import { userEvent } from 'vitest/browser'
 import { act, useState } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, describe, expect, it, vi } from 'vitest'
@@ -189,6 +190,17 @@ describe('Select', () => {
     expect(ring.borderRadius).toBe('10px')
     expect(ring.borderWidth).toBe('2px')
     expect(ring.inset).toBe('-4px')
+  })
+
+  it('shows its outer ring for keyboard focus but not pointer focus', async () => {
+    const select = renderSelect()
+    const control = container?.querySelector('.signal-select__control') as HTMLElement
+
+    await act(async () => userEvent.click(select))
+    expect(getComputedStyle(control, '::after').display).toBe('none')
+
+    await act(async () => userEvent.keyboard('{ArrowDown}'))
+    expect(getComputedStyle(control, '::after').display).toBe('block')
   })
 
   it.each([

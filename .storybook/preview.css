@@ -1,0 +1,5 @@
+.signal-storybook-theme {
+  min-height: 100vh;
+  color: var(--color-text-primary);
+  background: var(--color-background-default);
+}

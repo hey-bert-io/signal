@@ -1,6 +1,7 @@
 import '../../tokens/index.css'
 
 import axe from 'axe-core'
+import { userEvent } from 'vitest/browser'
 import { act, useState } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, describe, expect, it, vi } from 'vitest'
@@ -84,6 +85,17 @@ describe('TextField', () => {
     act(() => input.focus())
     const control = container?.querySelector('.signal-text-field__control') as HTMLElement
     expect(getComputedStyle(control, '::after').borderRadius).toBe('10px')
+  })
+
+  it('shows its outer ring for keyboard focus but not pointer focus', async () => {
+    const input = renderTextField()
+    const control = container?.querySelector('.signal-text-field__control') as HTMLElement
+
+    await act(async () => userEvent.click(input))
+    expect(getComputedStyle(control, '::after').display).toBe('none')
+
+    await act(async () => userEvent.keyboard('a'))
+    expect(getComputedStyle(control, '::after').display).toBe('block')
   })
 
   it('forwards native input attributes and refs', () => {

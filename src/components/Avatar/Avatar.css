@@ -41,16 +41,16 @@
   justify-content: center;
   color: var(--avatar-initials-foreground);
   background: var(--avatar-initials-background);
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
-  letter-spacing: 0;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-label);
+  letter-spacing: var(--letter-spacing-default);
   text-align: center;
   white-space: nowrap;
 }
 
 .signal-avatar[data-size='40'] .signal-avatar__initials {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
 }

@@ -29,6 +29,16 @@ afterEach(() => {
 })
 
 describe('Button', () => {
+  it('uses a hover-specific Primary foreground and restores white for pressed state', () => {
+    renderButton({ variant: 'primary' })
+    const rules = Array.from(document.styleSheets)
+      .flatMap((sheet) => Array.from(sheet.cssRules))
+      .map((rule) => rule.cssText)
+      .join('\n')
+    expect(rules).toContain('color: var(--button-primary-foreground-hover)')
+    expect(rules).toContain('color: var(--button-primary-foreground)')
+  })
+
   it('renders children with native button semantics', () => {
     const button = renderButton()
     expect(button.textContent).toBe('Save changes')

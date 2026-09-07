@@ -6,7 +6,7 @@
   --primitive-neutral-500: #81786d;
   --primitive-neutral-600: #686158;
   --primitive-neutral-700: #3d3b37;
-  --primitive-neutral-900: #252321;
+  --primitive-neutral-900: #18181b;
   --primitive-neutral-1000: #191816;
   --primitive-brand-50: #f0f2fe;
   --primitive-brand-100: #dfe4fc;
@@ -33,7 +33,7 @@
   --primitive-red-100: #f2dcd5;
   --primitive-red-300: #dfa69a;
   --primitive-red-500: #c46b5d;
-  --primitive-red-600: #ac4137;
-  --primitive-red-700: #87352d;
-  --primitive-red-900: #48231f;
+  --primitive-red-600: #e11d48;
+  --primitive-red-700: #be123c;
+  --primitive-red-900: #881337;
 }

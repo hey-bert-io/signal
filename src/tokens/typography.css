@@ -1,0 +1,15 @@
+:root {
+  --font-family-sans: 'IBM Plex Sans', Arial, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-size-label: 12px;
+  --line-height-label: 16px;
+  --font-size-body: 14px;
+  --line-height-body: 20px;
+  --line-height-body-reading: 24px;
+  --font-size-body-emphasized: 16px;
+  --line-height-body-emphasized: 24px;
+  --font-size-page-heading: 24px;
+  --line-height-page-heading: 32px;
+  --letter-spacing-default: 0;
+}
