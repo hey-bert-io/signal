@@ -1,0 +1,31 @@
+.signal-relay-tasks-shell .signal-app-shell__content {
+  padding: 34px 32px 48px;
+  background: var(--color-surface-subtle);
+}
+.signal-relay-tasks {
+  display: flex;
+  width: min(960px, 100%);
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+}
+.signal-relay-tasks-shell img { display: block; max-width: 16px; max-height: 16px; }
+.signal-relay-tasks__section { display: flex; flex-direction: column; gap: 16px; }
+.signal-relay-tasks__title { display: flex; align-items: center; gap: 8px; }
+.signal-relay-tasks__title h2 { margin: 0; font: 600 var(--font-size-body-emphasized)/var(--line-height-body-emphasized) var(--font-family-sans); }
+.signal-relay-tasks__actions { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .signal-relay-tasks-shell .signal-app-shell__content { padding: 34px 24px 48px; }
+  .signal-relay-tasks__actions { gap: 20px; }
+  .signal-relay-tasks__actions .signal-filter-bar { flex: 1 1 auto; }
+  .signal-relay-tasks__actions .signal-button { flex: none; }
+}
+
+@media (max-width: 767px) {
+  .signal-relay-tasks-shell .signal-app-shell__content { padding: 9px 16px 16px; }
+  .signal-relay-tasks { gap: 20px; }
+  .signal-relay-tasks__section { gap: 16px; }
+  .signal-relay-tasks__actions { align-items: stretch; flex-direction: column; gap: 16px; }
+  .signal-relay-tasks__actions .signal-button { align-self: flex-end; }
+}

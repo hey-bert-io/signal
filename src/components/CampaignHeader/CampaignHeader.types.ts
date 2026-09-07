@@ -1,2 +1,3 @@
 import type { ComponentPropsWithRef } from 'react'
-export interface CampaignHeaderProps extends ComponentPropsWithRef<'header'>{ title:string; description:string; taskCount?:number; onViewChange?:(view:string)=>void }
+export type CampaignView = 'overview' | 'tasks' | 'activity'
+export interface CampaignHeaderProps extends ComponentPropsWithRef<'header'>{ title:string; description:string; taskCount?:number; view?:CampaignView; onViewChange?:(view:CampaignView)=>void }
