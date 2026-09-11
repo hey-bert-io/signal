@@ -15,11 +15,18 @@ function AssetIcon({ source }: { source: string }) {
 function NavigationList({ items }: { items: AppShellNavigationItem[] }) {
   return (
     <ul className="signal-app-shell__navigation-list">
-      {items.map(({ label, ...item }) => (
-        <li key={`${item.href}:${label}`}>
-          <NavItem {...item}>{label}</NavItem>
-        </li>
-      ))}
+      {items.map(({ disabled, icon, label, ...item }) => {
+        const content = <>{icon ? <span aria-hidden="true" className="signal-nav-item__icon">{icon}</span> : null}<span className="signal-nav-item__label">{label}</span></>
+        return (
+          <li key={`${item.href ?? 'disabled'}:${label}`}>
+            {disabled ? (
+              <button aria-disabled="true" className="signal-nav-item" disabled type="button">{content}</button>
+            ) : (
+              <NavItem {...item} icon={icon}>{label}</NavItem>
+            )}
+          </li>
+        )
+      })}
     </ul>
   )
 }
@@ -34,6 +41,7 @@ export function AppShell({
   navigationLabel = 'Primary',
   onMenuClick,
   onThemeToggle,
+  themeDisabled = false,
   themeLabel = 'Toggle color theme',
   utilityNavigation = [],
 }: AppShellProps) {
@@ -53,7 +61,7 @@ export function AppShell({
           {utilityNavigation.length ? (
             <nav aria-label="Utility"><NavigationList items={utilityNavigation} /></nav>
           ) : null}
-          <button className="signal-nav-item signal-app-shell__theme-link" onClick={onThemeToggle} type="button">
+          <button aria-disabled={themeDisabled ? 'true' : undefined} className="signal-nav-item signal-app-shell__theme-link" disabled={themeDisabled} onClick={onThemeToggle} type="button">
             <span aria-hidden="true" className="signal-nav-item__icon"><AssetIcon source={sunIcon} /></span>
             <span className="signal-nav-item__label">{themeLabel}</span>
           </button>
@@ -67,7 +75,7 @@ export function AppShell({
           <span aria-hidden="true" className="signal-app-shell__compact-mark" />
           <span>{brandName}</span>
         </div>
-        <IconButton aria-label={themeLabel} icon={<AssetIcon source={sunIcon} />} onClick={onThemeToggle} size="medium" variant="ghost" />
+        <IconButton aria-label={themeLabel} disabled={themeDisabled} icon={<AssetIcon source={sunIcon} />} onClick={onThemeToggle} size="medium" variant="ghost" />
       </header>
 
       <main className="signal-app-shell__content">{children}</main>

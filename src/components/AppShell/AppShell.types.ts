@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 export interface AppShellNavigationItem {
   current?: boolean
   disabled?: boolean
-  href: string
+  href?: string
   icon?: ReactNode
   label: string
 }
@@ -24,6 +24,7 @@ export interface AppShellProps {
   navigationLabel?: string
   onMenuClick?: () => void
   onThemeToggle?: () => void
+  themeDisabled?: boolean
   themeLabel?: string
   utilityNavigation?: AppShellNavigationItem[]
 }

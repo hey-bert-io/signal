@@ -4,7 +4,7 @@ import { RelayOverview } from './RelayOverview'
 const meta = {
   title: '04 Relay/Overview', component: RelayOverview, tags: ['autodocs'],
   parameters: { layout: 'fullscreen', a11y: { test: 'error' }, docs: { description: { component: 'Relay is the product proof built from Signal. The Overview screen composes the App Shell, Campaign Header, Campaign Health, Card, Progress, Status, Avatar, and Milestone List into one responsive campaign view.' } } },
-  argTypes: { onThemeToggle: { control: false, table: { disable: true } }, onViewChange: { control: false, table: { disable: true } } },
+  argTypes: { onViewChange: { control: false, table: { disable: true } } },
 } satisfies Meta<typeof RelayOverview>
 
 export default meta

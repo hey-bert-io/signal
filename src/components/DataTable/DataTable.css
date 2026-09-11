@@ -32,6 +32,10 @@
   letter-spacing: var(--letter-spacing-default);
 }
 
+.signal-data-table__head .signal-data-table__row {
+  background: var(--table-header-background);
+}
+
 .signal-data-table__header-cell[data-sortable] {
   padding: 0;
 }
@@ -39,7 +43,7 @@
 .signal-data-table__cell {
   height: 44px;
   color: var(--table-cell-foreground);
-  background: inherit;
+  background: var(--table-row-background);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-label);
   font-weight: var(--font-weight-regular);
@@ -56,7 +60,15 @@
   background: var(--table-row-background-hover);
 }
 
+.signal-data-table__body .signal-data-table__row:hover:not([data-selected]) > .signal-data-table__cell {
+  background: var(--table-row-background-hover);
+}
+
 .signal-data-table__body .signal-data-table__row[data-selected] {
+  background: var(--table-row-background-selected);
+}
+
+.signal-data-table__body .signal-data-table__row[data-selected] > .signal-data-table__cell {
   background: var(--table-row-background-selected);
 }
 

@@ -72,6 +72,16 @@
   background: var(--primitive-brand-900);
 }
 
+.signal-app-shell__sidebar .signal-nav-item[aria-disabled='true'] {
+  color: var(--primitive-neutral-500);
+  opacity: 1;
+  cursor: default;
+}
+
+.signal-app-shell__sidebar .signal-nav-item[aria-disabled='true'] .signal-nav-item__icon {
+  opacity: 0.45;
+}
+
 .signal-app-shell__sidebar .signal-nav-item:focus-visible {
   box-shadow: 0 0 0 2px var(--primitive-neutral-900), 0 0 0 4px var(--color-border-focus);
 }
@@ -84,7 +94,7 @@
   min-height: 0;
 }
 
-.signal-app-shell__theme-link {
+.signal-app-shell__theme-link:not(:disabled) {
   cursor: pointer;
 }
 

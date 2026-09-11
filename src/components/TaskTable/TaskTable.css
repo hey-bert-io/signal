@@ -33,7 +33,7 @@
   .signal-task-table col.assignee { width: 128px; }
   .signal-task-table col.due { width: 60px; }
   .signal-task-table col.priority { width: 0; }
-  .signal-task-table__priority { display: none; }
+  .signal-task-table__priority { width: 0; padding: 0; overflow: hidden; visibility: hidden; }
   .signal-task-table__task { white-space: normal; }
   .signal-task-table .signal-data-table__cell { height: 60px; }
 }
@@ -42,7 +42,27 @@
   .signal-task-table col.status { width: 116px; }
   .signal-task-table col.due { width: 64px; }
   .signal-task-table col.assignee { width: 0; }
-  .signal-task-table__assignee { display: none !important; }
+  .signal-task-table__assignee { width: 0; padding: 0; overflow: hidden; visibility: hidden; }
+  .signal-task-table__header-cell,
+  .signal-task-table__cell { padding-right: 10px; padding-left: 10px; }
+}
+
+@container relay-tasks (max-width: 959px) {
+  .signal-task-table col.task { width: auto; }
+  .signal-task-table col.status { width: 116px; }
+  .signal-task-table col.assignee { width: 128px; }
+  .signal-task-table col.due { width: 60px; }
+  .signal-task-table col.priority { width: 0; }
+  .signal-task-table__priority { width: 0; padding: 0; overflow: hidden; visibility: hidden; }
+  .signal-task-table__task { white-space: normal; }
+  .signal-task-table .signal-data-table__cell { height: 60px; }
+}
+
+@container relay-tasks (max-width: 559px) {
+  .signal-task-table col.status { width: 116px; }
+  .signal-task-table col.due { width: 64px; }
+  .signal-task-table col.assignee { width: 0; }
+  .signal-task-table__assignee { width: 0; padding: 0; overflow: hidden; visibility: hidden; }
   .signal-task-table__header-cell,
   .signal-task-table__cell { padding-right: 10px; padding-left: 10px; }
 }

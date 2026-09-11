@@ -51,6 +51,15 @@ describe('AppShell', () => {
     expect(shell.querySelector('.signal-user-identity__name')?.textContent).toBe('Alex Rivera')
   })
 
+  it('renders unavailable destinations as native disabled controls without navigation targets', () => {
+    const shell = renderShell({ navigation: [navigation[0], { disabled: true, label: 'My tasks' }] })
+    const unavailable = [...shell.querySelectorAll<HTMLButtonElement>('button')].find((button) => button.textContent === 'My tasks')
+    expect(unavailable?.disabled).toBe(true)
+    expect(unavailable?.getAttribute('aria-disabled')).toBe('true')
+    expect(unavailable?.hasAttribute('aria-current')).toBe(false)
+    expect(shell.querySelector('a[href*="tasks"]')).toBeNull()
+  })
+
   it('keeps the evidenced sidebar, header, and content geometry in CSS', () => {
     renderShell()
     const css = [...document.styleSheets].flatMap((sheet) => [...sheet.cssRules]).map((rule) => rule.cssText).join('\n')
@@ -82,6 +91,20 @@ describe('AppShell', () => {
     act(() => theme?.click())
     expect(onMenuClick).toHaveBeenCalledOnce()
     expect(onThemeToggle).toHaveBeenCalledOnce()
+  })
+
+  it('uses native disabled semantics when a product disables theme switching', () => {
+    const onThemeToggle = vi.fn()
+    const shell = renderShell({ onThemeToggle, themeDisabled: true, themeLabel: 'Light / Dark mode' })
+    const controls = [
+      shell.querySelector<HTMLButtonElement>('.signal-app-shell__theme-link'),
+      shell.querySelector<HTMLButtonElement>('.signal-app-shell__compact-header button[aria-label="Light / Dark mode"]'),
+    ].filter((control): control is HTMLButtonElement => control !== null)
+    expect(controls).toHaveLength(2)
+    expect(controls.every((control) => control.disabled)).toBe(true)
+    expect(controls[0].getAttribute('aria-disabled')).toBe('true')
+    act(() => controls.forEach((control) => control.click()))
+    expect(onThemeToggle).not.toHaveBeenCalled()
   })
 
   it('passes axe with complete shell content', async () => {

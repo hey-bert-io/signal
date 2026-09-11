@@ -14,7 +14,7 @@
 .signal-relay-overview-content .signal-milestone-list { height:194px; }
 .signal-relay-overview-content .signal-milestone-list h2 { margin-bottom:16px; }
 .signal-relay-overview-content .signal-milestone-list ol { gap:12px; }
-.signal-relay-tasks__section { display:flex; flex-direction:column; gap:16px; }
+.signal-relay-tasks__section { display:flex; flex-direction:column; gap:16px; container:relay-tasks / inline-size; }
 .signal-relay-tasks__title { display:flex; align-items:center; gap:8px; }
 .signal-relay-tasks__title h2 { margin:0; font:600 var(--font-size-body-emphasized)/var(--line-height-body-emphasized) var(--font-family-sans); }
 .signal-relay-tasks__actions { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
